@@ -12,19 +12,23 @@ class SignInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        ChangeTextField(textFieldName: EmailTextField, placeholderString: "Email")
+        ChangeTextField(textFieldName: PasswordTextField, placeholderString: "Password")
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var EmailTextField: UITextField!
+    
+    
+    @IBOutlet weak var PasswordTextField: UITextField!
+    
+    
+    
+    func ChangeTextField(textFieldName : UITextField!  , placeholderString : String ) -> Void {
+        textFieldName.attributedPlaceholder = NSAttributedString(string: placeholderString , attributes: [NSAttributedString.Key.foregroundColor :UIColor.gray])
+        textFieldName.backgroundColor = UIColor.black
+        textFieldName.textColor = .white
     }
-    */
 
 }
