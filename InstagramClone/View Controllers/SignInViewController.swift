@@ -7,21 +7,39 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignInViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var EmailTextField: UITextField!
+    @IBOutlet weak var SignInButton: UIButton!
+    @IBOutlet weak var PasswordTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ChangeTextField(textFieldName: EmailTextField, placeholderString: "Email")
         ChangeTextField(textFieldName: PasswordTextField, placeholderString: "Password")
+        CheckTextFields()
+        
     }
     
-
-    @IBOutlet weak var EmailTextField: UITextField!
+    @IBAction func SignInButtonPressed(_ sender: Any) {
+        Auth.auth().signIn(withEmail: EmailTextField.text!, password: PasswordTextField.text!) { (dataResult, error) in
+            if error != nil{
+                print(error?.localizedDescription)
+                return
+            }
+            print(dataResult?.user.email)
+           self.performSegue(withIdentifier: "GoToHome", sender: nil)
+        }
+        
+    }
     
     
-    @IBOutlet weak var PasswordTextField: UITextField!
     
     
     
@@ -30,5 +48,19 @@ class SignInViewController: UIViewController {
         textFieldName.backgroundColor = UIColor.black
         textFieldName.textColor = .white
     }
-
+    
+    func CheckTextFields(){
+        EmailTextField.addTarget(self, action: #selector(UpdateTextFeild), for: UIControl.Event.editingChanged)
+        PasswordTextField.addTarget(self, action: #selector(UpdateTextFeild), for: UIControl.Event.editingChanged)
+    }
+    
+    @objc func UpdateTextFeild(){
+        guard let emailId = EmailTextField.text, !emailId.isEmpty, let password = PasswordTextField.text, !password.isEmpty else{
+            SignInButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
+            SignInButton.isEnabled =  false
+            return
+        }
+        SignInButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        SignInButton.isEnabled = true
+    }
 }

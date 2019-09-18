@@ -50,7 +50,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Lmf-LT-4AL" kind="presentation" id="5zY-jT-yWe"/>
+                                            <action selector="SignInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zIA-2z-f6k"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -92,6 +92,8 @@
                     <connections>
                         <outlet property="EmailTextField" destination="AAX-m4-Vfk" id="Qdm-hQ-krv"/>
                         <outlet property="PasswordTextField" destination="jSm-Xf-ei9" id="jNc-ku-i7x"/>
+                        <outlet property="SignInButton" destination="vdu-uZ-kGW" id="fHf-BW-DQW"/>
+                        <segue destination="Lmf-LT-4AL" kind="presentation" identifier="GoToHome" id="4yT-d7-EvY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -160,7 +162,6 @@
                                         </state>
                                         <connections>
                                             <action selector="SignUpPressed:" destination="3X0-pO-Mbd" eventType="touchUpInside" id="hpb-s4-D25"/>
-                                            <segue destination="Lmf-LT-4AL" kind="presentation" id="vsr-4r-V76"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -192,8 +193,10 @@
                     <connections>
                         <outlet property="EmailIdTextField" destination="k4U-wH-wK3" id="1Hs-md-5rh"/>
                         <outlet property="PasswordText" destination="KDf-dH-pBJ" id="RVH-YG-3in"/>
+                        <outlet property="SignUpButton" destination="AyQ-8W-TSC" id="pyl-Fp-do0"/>
                         <outlet property="UserNameTextField" destination="0ur-hg-NxX" id="LMi-Gv-O1w"/>
                         <outlet property="imagePicker" destination="4S6-fP-sjM" id="EcK-NA-Tyf"/>
+                        <segue destination="Lmf-LT-4AL" kind="presentation" identifier="GoToHomeBySiginUp" id="cHA-TD-6u3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0Y-4m-33h" sceneMemberID="firstResponder"/>
@@ -213,6 +216,6 @@
         <image name="image" width="640" height="640"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vsr-4r-V76"/>
+        <segue reference="cHA-TD-6u3"/>
     </inferredMetricsTieBreakers>
 </document>
