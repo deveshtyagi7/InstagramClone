@@ -8,35 +8,53 @@
 
 import UIKit
 import FirebaseAuth
+import KRProgressHUD
 
 class SignInViewController: UIViewController {
 
     
+    @IBOutlet weak var EmailIdTextField: UITextField!
     
-    @IBOutlet weak var EmailTextField: UITextField!
+    @IBOutlet weak var PasswordText: UITextField!
+    
+    
     @IBOutlet weak var SignInButton: UIButton!
-    @IBOutlet weak var PasswordTextField: UITextField!
+ 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ChangeTextField(textFieldName: EmailTextField, placeholderString: "Email")
-        ChangeTextField(textFieldName: PasswordTextField, placeholderString: "Password")
+        ChangeTextField(textFieldName: EmailIdTextField, placeholderString: "Email")
+        ChangeTextField(textFieldName: PasswordText, placeholderString: "Password")
         CheckTextFields()
+        KRProgressHUD.set(activityIndicatorViewColors: [.black,.lightGray])
+     
         
+    }
+   // Auto login
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            
+            self.performSegue(withIdentifier: "GoToHome", sender: nil)
+        }
     }
     
     @IBAction func SignInButtonPressed(_ sender: Any) {
-        Auth.auth().signIn(withEmail: EmailTextField.text!, password: PasswordTextField.text!) { (dataResult, error) in
-            if error != nil{
-                print(error?.localizedDescription)
-                return
-            }
-            print(dataResult?.user.email)
-           self.performSegue(withIdentifier: "GoToHome", sender: nil)
-        }
-        
+        view.endEditing(true)
+        KRProgressHUD.show(withMessage:"Signing In" )
+        AuthServices.SignIn(email: EmailIdTextField.text!, password: PasswordText.text!, completion: {
+            self.performSegue(withIdentifier: "GoToHome", sender: nil)
+            KRProgressHUD.dismiss()
+        }, OnError: {error in print(error!)
+            KRProgressHUD.showWarning(withMessage: "Invalid Email Id or Password")
+            })
+   
+    }
+     // to dismiss keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     
@@ -50,12 +68,12 @@ class SignInViewController: UIViewController {
     }
     
     func CheckTextFields(){
-        EmailTextField.addTarget(self, action: #selector(UpdateTextFeild), for: UIControl.Event.editingChanged)
-        PasswordTextField.addTarget(self, action: #selector(UpdateTextFeild), for: UIControl.Event.editingChanged)
+        EmailIdTextField.addTarget(self, action: #selector(UpdateButton), for: UIControl.Event.editingChanged)
+        PasswordText.addTarget(self, action: #selector(UpdateButton), for: UIControl.Event.editingChanged)
     }
     
-    @objc func UpdateTextFeild(){
-        guard let emailId = EmailTextField.text, !emailId.isEmpty, let password = PasswordTextField.text, !password.isEmpty else{
+    @objc func UpdateButton(){
+        guard let emailId = EmailIdTextField.text, !emailId.isEmpty, let password = PasswordText.text, !password.isEmpty else{
             SignInButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
             SignInButton.isEnabled =  false
             return

@@ -25,6 +25,8 @@
 		1045D4592327D1C40057A50A /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1045D4582327D1C40057A50A /* Activity.storyboard */; };
 		1045D45C2327D1DE0057A50A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1045D45A2327D1DE0057A50A /* Profile.storyboard */; };
 		1045D45E232808240057A50A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1045D45D232808240057A50A /* GoogleService-Info.plist */; };
+		10E4CF402332A7E00058E36C /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4CF3F2332A7E00058E36C /* AuthServices.swift */; };
+		10E4CF422333A76B0058E36C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4CF412333A76B0058E36C /* Config.swift */; };
 		9376DB8C15A92053F7DB372F /* Pods_InstagramClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4248E5488D481A1AE8D78B /* Pods_InstagramClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		1045D4582327D1C40057A50A /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		1045D45B2327D1DE0057A50A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = InstagramClone/InstagramClone/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		1045D45D232808240057A50A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		10E4CF3F2332A7E00058E36C /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		10E4CF412333A76B0058E36C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		2A4248E5488D481A1AE8D78B /* Pods_InstagramClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6B4EEE537696345F2B12AA /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,14 +91,10 @@
 		10450F632327725D00B81FAE /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
-				1045D44D2327D0250057A50A /* Main.storyboard */,
-				1045D4502327D1690057A50A /* Home.storyboard */,
-				1045D4532327D1890057A50A /* Discover.storyboard */,
-				1045D4552327D1A40057A50A /* Camera.storyboard */,
-				1045D4582327D1C40057A50A /* Activity.storyboard */,
-				1045D45A2327D1DE0057A50A /* Profile.storyboard */,
 				10450F642327725D00B81FAE /* AppDelegate.swift */,
-				10450F682327725D00B81FAE /* Start.storyboard */,
+				10E4CF3F2332A7E00058E36C /* AuthServices.swift */,
+				10E4CF412333A76B0058E36C /* Config.swift */,
+				10E4CF3E2332A46C0058E36C /* StoryBoards */,
 				10450F8A2327A77000B81FAE /* View Controllers */,
 				10450F6B2327726300B81FAE /* Assets.xcassets */,
 				10450F6D2327726300B81FAE /* LaunchScreen.storyboard */,
@@ -116,6 +116,20 @@
 				10450F882327A76200B81FAE /* ProfileViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		10E4CF3E2332A46C0058E36C /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				1045D44D2327D0250057A50A /* Main.storyboard */,
+				1045D4502327D1690057A50A /* Home.storyboard */,
+				1045D4532327D1890057A50A /* Discover.storyboard */,
+				1045D4552327D1A40057A50A /* Camera.storyboard */,
+				1045D4582327D1C40057A50A /* Activity.storyboard */,
+				1045D45A2327D1DE0057A50A /* Profile.storyboard */,
+				10450F682327725D00B81FAE /* Start.storyboard */,
+			);
+			path = StoryBoards;
 			sourceTree = "<group>";
 		};
 		2BD2AC8EC9BC467D9C66B3EB /* Frameworks */ = {
@@ -263,6 +277,8 @@
 				10450F812327A71200B81FAE /* HomeViewController.swift in Sources */,
 				10450F872327A75500B81FAE /* ActivityViewController.swift in Sources */,
 				10450F832327A72E00B81FAE /* DiscoverViewController.swift in Sources */,
+				10E4CF402332A7E00058E36C /* AuthServices.swift in Sources */,
+				10E4CF422333A76B0058E36C /* Config.swift in Sources */,
 				10450F892327A76200B81FAE /* ProfileViewController.swift in Sources */,
 				10450F852327A74000B81FAE /* CameraViewController.swift in Sources */,
 			);
