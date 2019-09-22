@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
         }
      let storyboard = UIStoryboard(name: "Start", bundle: nil)
         let signinVc =  storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+    
         self.present(signinVc,animated: true,completion: nil)
 
     }

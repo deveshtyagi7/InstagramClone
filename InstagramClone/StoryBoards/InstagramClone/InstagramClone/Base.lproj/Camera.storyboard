@@ -29,7 +29,6 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zrV-yB-X0G">
                                         <rect key="frame" x="125" y="25" width="274" height="100"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -57,6 +56,9 @@
                                 <state key="normal" title="Share!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="ShareButtonPressed:" destination="XaY-U8-cdS" eventType="touchUpInside" id="mDq-kI-1l0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,7 +72,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lwd-zH-XE5"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Camera" id="iub-z6-09U"/>
+                    <navigationItem key="navigationItem" title="Camera" id="iub-z6-09U">
+                        <barButtonItem key="leftBarButtonItem" title="Remove" id="iht-Zn-Lve">
+                            <connections>
+                                <action selector="RemoveButtonPressed:" destination="XaY-U8-cdS" id="xTa-aj-Lgq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="CaptionTextField" destination="zrV-yB-X0G" id="vX3-8s-qe0"/>
+                        <outlet property="RemoveButton" destination="iht-Zn-Lve" id="JuD-Sd-V7T"/>
+                        <outlet property="ShareButton" destination="VFD-yO-1Y1" id="Zyy-tH-wJd"/>
+                        <outlet property="UploadPicture" destination="uLy-q3-WMq" id="JXJ-hz-zin"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nuh-ub-Jl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
