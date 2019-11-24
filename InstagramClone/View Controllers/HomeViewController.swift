@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import Kingfisher
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -59,26 +60,24 @@ extension HomeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! CustomCell
         cell.PostCaption.text = posts[indexPath.row].caption
-        cell.PostImage.image = UIImage(named: "pic.jpeg")
+     //   cell.PostImage.image = UIImage(named: "pic.jpeg")
+        
 //        if let photoUrl = posts[indexPath.row].photoURL {
-//            let url = URL(string :posts[indexPath.row].photoURL!)
+          let url = URL(string :posts[indexPath.row].photoURL!)
 //        URLSession.shared.dataTask(with: url!) { (data, respose, error) in
 //            if error != nil{
 //                print(error!)
 //                return
 //            }
 //            cell.PostImage.image = UIImage(data: data!)
-//
-//
-//
-//
-//
+
 //        }
 //        }
             
-        
-          
-       
+        KingfisherManager.shared.retrieveImage(with: url!, options: nil, progressBlock: nil) { (image, error, cache, urll) in
+            cell.PostImage.image = image
+        }
+            
         
         return cell
        
