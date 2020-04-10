@@ -41,6 +41,7 @@ class CameraViewController: UIViewController ,UIImagePickerControllerDelegate,UI
             self.ShareButton.isEnabled = true
             self.RemoveButton.isEnabled = true
             self.ShareButton.backgroundColor = .black
+         //   self.CaptionTextField.text = "Write caption here"
         }
         else{
               self.ShareButton.isEnabled = false

@@ -19,17 +19,16 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         loadPosts()
-        
+         self.tableView.reloadData()
 
     }
     
     func loadPosts(){
         Database.database().reference().child("Posts").observe(.childAdded) { (snapshot : DataSnapshot) in
             if let dict = snapshot.value as? [String : Any]{
-                let captionText = dict["Caption"] as! String
-                let photoUrlString = dict["postUrl"] as! String
-                let post = Post(captionText: captionText, photoURLString: photoUrlString)
-                self.posts.append(post)
+                
+                let newPost = Post.transformPost(dict: dict)
+                self.posts.append(newPost)
                 self.tableView.reloadData()
             }
         }
@@ -62,21 +61,21 @@ extension HomeViewController : UITableViewDataSource{
         cell.PostCaption.text = posts[indexPath.row].caption
      //   cell.PostImage.image = UIImage(named: "pic.jpeg")
         
-//        if let photoUrl = posts[indexPath.row].photoURL {
-          let url = URL(string :posts[indexPath.row].photoURL!)
-//        URLSession.shared.dataTask(with: url!) { (data, respose, error) in
-//            if error != nil{
-//                print(error!)
-//                return
-//            }
-//            cell.PostImage.image = UIImage(data: data!)
-
+////        if let photoUrl = posts[indexPath.row].photoURL {
+//          let url = URL(string :posts[indexPath.row].photoURL!)
+////        URLSession.shared.dataTask(with: url!) { (data, respose, error) in
+////            if error != nil{
+////                print(error!)
+////                return
+////            }
+////            cell.PostImage.image = UIImage(data: data!)
+//
+////        }
+////        }
+//            
+//        KingfisherManager.shared.retrieveImage(with: url!, options: nil, progressBlock: nil) { (image, error, cache, urll) in
+//            cell.PostImage.image = image
 //        }
-//        }
-            
-        KingfisherManager.shared.retrieveImage(with: url!, options: nil, progressBlock: nil) { (image, error, cache, urll) in
-            cell.PostImage.image = image
-        }
             
         
         return cell
