@@ -9,17 +9,19 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
-import Kingfisher
+
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
     override func viewDidLoad() {
+        tableView.estimatedRowHeight = 600
+        tableView.rowHeight = UITableView.automaticDimension
         super.viewDidLoad()
         tableView.dataSource = self
         loadPosts()
-         self.tableView.reloadData()
+  
 
     }
     
@@ -54,29 +56,17 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return 10
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! CustomCell
-        cell.PostCaption.text = posts[indexPath.row].caption
-     //   cell.PostImage.image = UIImage(named: "pic.jpeg")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! HomeTableViewCell
+        cell.profileImageView.image = UIImage(named: "photo1.jpeg")
+        cell.nameLabel.text = "ABCD"
+        cell.postImageView.image = UIImage(named: "photo3.jpeg")
+        cell.captionLabel.text = "Abcsegubfjbjkb hscdghmscahgmsv  ,javdhjavhdv hm j,dvakuyvdkahv j,avdlusavxnz, jsc cbhjsdbckw eh ehwvkhjw vkuywgev kcsnsckxj, b,S ack ,bciulsbecywbvlc ,slucglwaebcjblsclsbli  n"
         
-////        if let photoUrl = posts[indexPath.row].photoURL {
-//          let url = URL(string :posts[indexPath.row].photoURL!)
-////        URLSession.shared.dataTask(with: url!) { (data, respose, error) in
-////            if error != nil{
-////                print(error!)
-////                return
-////            }
-////            cell.PostImage.image = UIImage(data: data!)
-//
-////        }
-////        }
-//            
-//        KingfisherManager.shared.retrieveImage(with: url!, options: nil, progressBlock: nil) { (image, error, cache, urll) in
-//            cell.PostImage.image = image
-//        }
-            
+        //cell.PostCaption.text = posts[indexPath.row].caption
+  
         
         return cell
        
