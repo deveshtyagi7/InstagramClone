@@ -57,6 +57,7 @@ class SignUpViewController: UIViewController{
                 self.performSegue(withIdentifier: "GoToHomeBySiginUp", sender: nil)
             }, OnError: { (errormsg) in
                     print(errormsg!)
+                
             })
            
         

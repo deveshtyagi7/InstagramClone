@@ -26,6 +26,7 @@
 		1045D45C2327D1DE0057A50A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1045D45A2327D1DE0057A50A /* Profile.storyboard */; };
 		107526442441E596003DA266 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107526432441E596003DA266 /* Assets.xcassets */; };
 		107526462441EB40003DA266 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107526452441EB40003DA266 /* HomeTableViewCell.swift */; };
+		1096E48724423494002BE650 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1096E48624423494002BE650 /* User.swift */; };
 		109EE404238B0F0F001CE3C5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109EE403238B0F0F001CE3C5 /* Post.swift */; };
 		109EE408238B1F55001CE3C5 /* pic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 109EE407238B1F54001CE3C5 /* pic.jpeg */; };
 		10E4CF402332A7E00058E36C /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4CF3F2332A7E00058E36C /* AuthServices.swift */; };
@@ -56,6 +57,7 @@
 		1045D45B2327D1DE0057A50A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = InstagramClone/InstagramClone/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		107526432441E596003DA266 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/z2l-ios-social-network-master/InstagramClone/Assets.xcassets"; sourceTree = "<group>"; };
 		107526452441EB40003DA266 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		1096E48624423494002BE650 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		109EE403238B0F0F001CE3C5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		109EE407238B1F54001CE3C5 /* pic.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic.jpeg; sourceTree = "<group>"; };
 		10E4CF3F2332A7E00058E36C /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
@@ -103,6 +105,8 @@
 				10E4CF3F2332A7E00058E36C /* AuthServices.swift */,
 				10E4CF412333A76B0058E36C /* Config.swift */,
 				109EE403238B0F0F001CE3C5 /* Post.swift */,
+				1096E48624423494002BE650 /* User.swift */,
+				1096E488244234A7002BE650 /* Model */,
 				107526472441EB47003DA266 /* Views */,
 				10E4CF3E2332A46C0058E36C /* StoryBoards */,
 				10450F8A2327A77000B81FAE /* View Controllers */,
@@ -135,6 +139,13 @@
 				107526452441EB40003DA266 /* HomeTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1096E488244234A7002BE650 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		10E4CF3E2332A46C0058E36C /* StoryBoards */ = {
@@ -293,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1096E48724423494002BE650 /* User.swift in Sources */,
 				10450F79232780AC00B81FAE /* SignUpViewController.swift in Sources */,
 				109EE404238B0F0F001CE3C5 /* Post.swift in Sources */,
 				10450F772327741E00B81FAE /* SignInViewController.swift in Sources */,

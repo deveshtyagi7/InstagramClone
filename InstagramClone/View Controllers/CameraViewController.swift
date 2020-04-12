@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorage
 import FirebaseDatabase
+import FirebaseAuth
 import KRProgressHUD
 
 class CameraViewController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
@@ -91,7 +92,12 @@ class CameraViewController: UIViewController ,UIImagePickerControllerDelegate,UI
         let newPostId = postIdReference.childByAutoId().key
         //reference of new post
         let newPostReference = postIdReference.child(newPostId!)
-        newPostReference.setValue(["postUrl":postUrl,"Caption":CaptionTextField.text! ]) { (error, ref) in
+        
+        guard let currentUser = Auth.auth().currentUser else{
+            return 
+        }
+        let currentUserID = currentUser.uid
+        newPostReference.setValue(["uid": currentUserID ,"postUrl":postUrl,"Caption":CaptionTextField.text! ]) { (error, ref) in
             if error != nil{
                 KRProgressHUD.showError(withMessage: error?.localizedDescription)
                 return

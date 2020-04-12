@@ -10,6 +10,8 @@ import Foundation
 class Post {
     var caption : String?
     var photoURL : String?
+    var uid : String?
+    
  
 }
 
@@ -19,7 +21,12 @@ extension Post{
     let post = Post()
     post.caption = dict["Caption"] as? String
     post.photoURL = dict["postUrl"] as? String
+        post.uid = dict["uid"] as? String
     return post 
+    }
+    
+    static func transformPost(){
+        
     }
     
     

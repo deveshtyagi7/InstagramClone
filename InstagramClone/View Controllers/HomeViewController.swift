@@ -9,12 +9,15 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import SDWebImage
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var acitivityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
+    var users = [User]()
     override func viewDidLoad() {
         tableView.estimatedRowHeight = 600
         tableView.rowHeight = UITableView.automaticDimension
@@ -26,14 +29,36 @@ class HomeViewController: UIViewController {
     }
     
     func loadPosts(){
+        acitivityIndicatorView.startAnimating()
         Database.database().reference().child("Posts").observe(.childAdded) { (snapshot : DataSnapshot) in
             if let dict = snapshot.value as? [String : Any]{
-                
                 let newPost = Post.transformPost(dict: dict)
-                self.posts.append(newPost)
-                self.tableView.reloadData()
+                
+                
+                self.fetchUser(uid: newPost.uid!) {
+                    self.posts.append(newPost)
+                    self.acitivityIndicatorView.stopAnimating()
+                        self.tableView.reloadData()
+                }
+               
             }
         }
+    }
+    
+    func fetchUser(uid :String , completed : @escaping () -> Void) {
+        Database.database().reference().child("Users").child(uid).observeSingleEvent(of: DataEventType.value ,with:{
+                   snapshot  in
+                   if let dict = snapshot.value as? [String: Any]{
+                     
+                       let user = User.transformUser(dict :dict)
+                    self.users.append(user)
+                    completed()
+                       
+                       }
+                     
+               
+           })
+        
     }
     
     @IBAction func logOutbuttonPressed(_ sender: Any) {
@@ -56,16 +81,17 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! HomeTableViewCell
-        cell.profileImageView.image = UIImage(named: "photo1.jpeg")
-        cell.nameLabel.text = "ABCD"
-        cell.postImageView.image = UIImage(named: "photo3.jpeg")
-        cell.captionLabel.text = "Abcsegubfjbjkb hscdghmscahgmsv  ,javdhjavhdv hm j,dvakuyvdkahv j,avdlusavxnz, jsc cbhjsdbckw eh ehwvkhjw vkuywgev kcsnsckxj, b,S ack ,bciulsbecywbvlc ,slucglwaebcjblsclsbli  n"
+        let post = posts[indexPath.row]
+        let user = users[indexPath.row]
+        cell.post = post
+        cell.user = user
+       // cell.updateView(post: post)
+      
         
-        //cell.PostCaption.text = posts[indexPath.row].caption
   
         
         return cell

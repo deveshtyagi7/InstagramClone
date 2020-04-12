@@ -20,15 +20,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="570" id="Zzo-4L-155" customClass="HomeTableViewCell" customModule="PicSick" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="570" id="Zzo-4L-155" customClass="HomeTableViewCell" customModule="PicSick" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="570"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zzo-4L-155" id="zeO-Xa-JLa">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zzo-4L-155" id="zeO-Xa-JLa">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="570"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo1" translatesAutoresizingMaskIntoConstraints="NO" id="EPn-sB-W1I">
-                                                    <rect key="frame" x="15" y="10" width="36" height="36"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EPn-sB-W1I">
+                                                    <rect key="frame" x="15" y="0.0" width="36" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="5jg-g8-H2g"/>
                                                         <constraint firstAttribute="width" constant="36" id="KaU-I7-3uC"/>
@@ -40,40 +40,36 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkx-ki-k94">
-                                                    <rect key="frame" x="59" y="17.5" width="45" height="21"/>
+                                                    <rect key="frame" x="59" y="7.5" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo3" translatesAutoresizingMaskIntoConstraints="NO" id="nY1-hF-Jcb">
-                                                    <rect key="frame" x="0.0" y="54" width="414" height="340"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nY1-hF-Jcb">
+                                                    <rect key="frame" x="0.0" y="44" width="414" height="340"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="340" id="6Fo-2B-kC0"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="TQ7-HP-fZM">
-                                                    <rect key="frame" x="15" y="409" width="29" height="29"/>
+                                                    <rect key="frame" x="15" y="399" width="29" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="29" id="6SK-8w-H3A"/>
                                                         <constraint firstAttribute="height" constant="29" id="8uY-Ol-18x"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="yRr-PN-hVH">
-                                                    <rect key="frame" x="64" y="409" width="29" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="u6Z-rG-lkS">
-                                                    <rect key="frame" x="113" y="409" width="29" height="29"/>
+                                                    <rect key="frame" x="113" y="399" width="29" height="29"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDd-4Z-BAS">
-                                                    <rect key="frame" x="15" y="453" width="399" height="1"/>
+                                                    <rect key="frame" x="15" y="443" width="399" height="1"/>
                                                     <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="wtu-O9-dQU"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhd-Af-Tvh">
-                                                    <rect key="frame" x="15" y="462" width="59" height="39"/>
+                                                    <rect key="frame" x="15" y="452" width="59" height="49"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                     <state key="normal" title="Like This?">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,7 +82,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="Kqc-iB-GSU">
-                                                    <rect key="frame" x="64" y="409" width="29" height="29"/>
+                                                    <rect key="frame" x="64" y="399" width="29" height="29"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -99,7 +95,7 @@
                                                 <constraint firstItem="Jhd-Af-Tvh" firstAttribute="top" secondItem="nDd-4Z-BAS" secondAttribute="bottom" constant="8" id="HDU-0h-b9j"/>
                                                 <constraint firstItem="o17-tO-odN" firstAttribute="top" secondItem="Jhd-Af-Tvh" secondAttribute="bottom" constant="8" id="HKg-3E-ciH"/>
                                                 <constraint firstItem="nDd-4Z-BAS" firstAttribute="leading" secondItem="zeO-Xa-JLa" secondAttribute="leading" constant="15" id="On8-OW-OM2"/>
-                                                <constraint firstItem="EPn-sB-W1I" firstAttribute="top" secondItem="zeO-Xa-JLa" secondAttribute="top" constant="10" id="Quw-aN-ggA"/>
+                                                <constraint firstItem="EPn-sB-W1I" firstAttribute="firstBaseline" secondItem="zeO-Xa-JLa" secondAttribute="top" id="Quw-aN-ggA"/>
                                                 <constraint firstItem="kkx-ki-k94" firstAttribute="centerY" secondItem="EPn-sB-W1I" secondAttribute="centerY" id="RHC-Iv-KSE"/>
                                                 <constraint firstAttribute="trailing" secondItem="o17-tO-odN" secondAttribute="trailing" constant="15" id="Uea-0I-1fs"/>
                                                 <constraint firstItem="o17-tO-odN" firstAttribute="leading" secondItem="zeO-Xa-JLa" secondAttribute="leading" constant="15" id="Wpy-Ss-zv7"/>
@@ -131,11 +127,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Kb9-1n-qms">
+                                <rect key="frame" x="197" y="465" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Anz-vc-beD" firstAttribute="top" secondItem="YU2-xP-b07" secondAttribute="top" id="0XB-pc-HwQ"/>
+                            <constraint firstItem="Kb9-1n-qms" firstAttribute="centerY" secondItem="M8X-cq-vMf" secondAttribute="centerY" id="4So-H0-fqB"/>
                             <constraint firstItem="Anz-vc-beD" firstAttribute="leading" secondItem="M8X-cq-vMf" secondAttribute="leading" id="DbB-rr-Pje"/>
+                            <constraint firstItem="Kb9-1n-qms" firstAttribute="centerX" secondItem="M8X-cq-vMf" secondAttribute="centerX" id="Vfb-HV-uZj"/>
                             <constraint firstItem="Anz-vc-beD" firstAttribute="leading" secondItem="M8X-cq-vMf" secondAttribute="leading" id="adj-UW-K2T"/>
                             <constraint firstItem="Anz-vc-beD" firstAttribute="trailing" secondItem="M8X-cq-vMf" secondAttribute="trailing" id="djw-DK-r09"/>
                             <constraint firstItem="M8X-cq-vMf" firstAttribute="bottom" secondItem="Anz-vc-beD" secondAttribute="bottom" id="f1b-PK-hhp"/>
@@ -152,12 +153,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="acitivityIndicatorView" destination="Kb9-1n-qms" id="CDd-Se-TWJ"/>
                         <outlet property="tableView" destination="Anz-vc-beD" id="1Kf-Wg-q21"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kY8-2P-QNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2610.144927536232" y="693.75"/>
+            <point key="canvasLocation" x="-3359" y="687"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mFb-VC-gZe">
@@ -186,8 +188,6 @@
         <image name="Home" width="21" height="23"/>
         <image name="Home_Selected" width="21" height="23"/>
         <image name="like" width="46" height="41"/>
-        <image name="photo1" width="3098" height="2074"/>
-        <image name="photo3" width="3872" height="2184"/>
         <image name="share" width="37" height="41"/>
     </resources>
 </document>
