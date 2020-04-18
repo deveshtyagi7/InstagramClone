@@ -18,6 +18,16 @@ class HomeViewController: UIViewController {
     
     var posts = [Post]()
     var users = [User]()
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           self.tabBarController?.tabBar.isHidden = false
+       }
+    @IBAction func buttonPressed(_ sender: Any) {
+        
+        
+        self.performSegue(withIdentifier: "goToComment", sender: nil)
+    }
+    
     override func viewDidLoad() {
         tableView.estimatedRowHeight = 600
         tableView.rowHeight = UITableView.automaticDimension
@@ -90,10 +100,7 @@ extension HomeViewController : UITableViewDataSource{
         cell.post = post
         cell.user = user
        // cell.updateView(post: post)
-      
-        
-  
-        
+    
         return cell
        
     }

@@ -44,7 +44,7 @@ class HomeTableViewCell: UITableViewCell {
                    postImageView.sd_setImage(with: photoURL)
            
                }
-        setupUserInfo()
+        
     }
     
     func setupUserInfo() {

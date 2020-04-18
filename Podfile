@@ -13,5 +13,6 @@ target 'PicSick' do
 	pod 'FirebaseStorage'
 	pod 'KRProgressHUD'
 	pod 'SDWebImage'
+  pod 'ProgressHUD'
   
 end

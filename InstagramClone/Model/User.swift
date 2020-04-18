@@ -18,7 +18,7 @@ class User{
 extension User{
     
     static func transformUser(dict : [String : Any]) -> User{
-        print("trasnsform user called")
+       
         let user = User()
         user.email = dict["Email"] as? String
         user.profileImageUrl = dict["ProfilePictureUrl"] as? String
