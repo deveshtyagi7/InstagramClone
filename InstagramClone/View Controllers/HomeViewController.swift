@@ -18,16 +18,6 @@ class HomeViewController: UIViewController {
     
     var posts = [Post]()
     var users = [User]()
-    override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           self.tabBarController?.tabBar.isHidden = false
-       }
-    @IBAction func buttonPressed(_ sender: Any) {
-        
-        
-        self.performSegue(withIdentifier: "goToComment", sender: nil)
-    }
-    
     override func viewDidLoad() {
         tableView.estimatedRowHeight = 600
         tableView.rowHeight = UITableView.automaticDimension
@@ -40,34 +30,28 @@ class HomeViewController: UIViewController {
     
     func loadPosts(){
         acitivityIndicatorView.startAnimating()
-        Database.database().reference().child("Posts").observe(.childAdded) { (snapshot : DataSnapshot) in
-            if let dict = snapshot.value as? [String : Any]{
-                let newPost = Post.transformPost(dict: dict)
+        Api.Post.observePosts { (post) in
+            guard let postUid = post.uid else {return}
+            self.fetchUser(uid: postUid , completed: {
+                 
                 
-                
-                self.fetchUser(uid: newPost.uid!) {
-                    self.posts.append(newPost)
-                    self.acitivityIndicatorView.stopAnimating()
-                        self.tableView.reloadData()
-                }
-               
-            }
+                self.posts.append(post)
+                           self.acitivityIndicatorView.stopAnimating()
+                           self.tableView.reloadData()
+                  
+            })
+    
+            
         }
     }
     
     func fetchUser(uid :String , completed : @escaping () -> Void) {
-        Database.database().reference().child("Users").child(uid).observeSingleEvent(of: DataEventType.value ,with:{
-                   snapshot  in
-                   if let dict = snapshot.value as? [String: Any]{
-                     
-                       let user = User.transformUser(dict :dict)
-                    self.users.append(user)
-                    completed()
-                       
-                       }
-                     
-               
-           })
+        
+        Api.User.observeUsers(withId: uid, completion: {
+            user in
+            self.users.append(user)
+            completed()
+        })
         
     }
     
@@ -87,11 +71,22 @@ class HomeViewController: UIViewController {
 
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToComment"{
+            let commentViewController = segue.destination as! CommentViewController
+            let postId = sender as! String
+            commentViewController.postId = postId
+        }
+    }
+    
 }
 
 extension HomeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         
+        
         return posts.count
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! HomeTableViewCell
@@ -99,6 +94,7 @@ extension HomeViewController : UITableViewDataSource{
         let user = users[indexPath.row]
         cell.post = post
         cell.user = user
+        cell.homeVC = self
        // cell.updateView(post: post)
     
         return cell

@@ -22,6 +22,8 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!
     
+    var homeVC : HomeViewController?
+    
     var post: Post?{
         didSet{
             updateView()
@@ -62,6 +64,17 @@ class HomeTableViewCell: UITableViewCell {
         
         nameLabel.text = ""
         captionLabel.text = ""
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectCommentImageView))
+        commentImageView.isUserInteractionEnabled = true
+        commentImageView.addGestureRecognizer(tapGesture)
+        
+    }
+    @objc func handleSelectCommentImageView(){
+        if let id = post?.id{
+            
+                   homeVC?.performSegue(withIdentifier: "goToComment", sender: id)
+        }
+       
     }
 
     

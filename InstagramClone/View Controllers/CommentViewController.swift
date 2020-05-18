@@ -17,66 +17,92 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    let postId = "-M4i4BvO7j74kQ2EJVBR"
+    @IBOutlet weak var constraintToBottom: NSLayoutConstraint!
+    
+    var postId : String!
     var comments = [Comment]()
-     var users = [User]()
+    var users = [User]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Comment"
         //sendButton.isEnabled = false
         tableView.dataSource = self
-       tableView.estimatedRowHeight = 69
-       tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 69
+        tableView.rowHeight = UITableView.automaticDimension
         empty()
         CheckTextField()
         loadComments()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_ :)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_ :)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           self.tabBarController?.tabBar.isHidden = true
-       }
-       
-    func loadComments(){
-         let postCommentRef = Database.database().reference().child("post-comments").child(self.postId)
-        postCommentRef.observe(.childAdded) { (snapshot) in
-       
-            Database.database().reference().child("Comments").child(snapshot.key).observeSingleEvent(of: .value) { (snapshotComment) in
-                if let dict = snapshotComment.value as? [String : Any]{
-                    let newComment = Comment.transformComment(dict: dict)
-                    
-                    
-                    self.fetchUser(uid: newComment.uid!) {
-                    self.comments.append(newComment)
-                    self.tableView.reloadData()
-                    }
-                   
-                }
-                
-            }
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    @objc func keyboardWillShow(_ notification : NSNotification){
+        
+        
+        let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+        UIView.animate(withDuration: 0.3){
+            
+            self.constraintToBottom.constant =  keyboardFrame!.height
+            self.view.layoutIfNeeded()
         }
+        
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    @objc func keyboardWillHide(_ notification : NSNotification){
+        UIView.animate(withDuration: 0.3){
+            
+            self.constraintToBottom.constant = 0.0
+            self.view.layoutIfNeeded()
+        }
+        
+    }
+    func loadComments(){
+        Api.Post_Comment.observePostComment(withPostID: self.postId, completion: {
+            (snapshotkey) in
+            
+            Api.Comment.observeComment(withPostId: snapshotkey, completion: {
+                comment in
+                
+                self.fetchUser(uid: comment.uid! , completed: {
+                    
+                        self.comments.append(comment)
+                        self.tableView.reloadData()
+                    
+                })
+            })
+            
+            
+        })
+            
     }
     func fetchUser(uid :String , completed : @escaping () -> Void) {
-        Database.database().reference().child("Users").child(uid).observeSingleEvent(of: DataEventType.value ,with:{
-                   snapshot  in
-                   if let dict = snapshot.value as? [String: Any]{
-                     
-                       let user = User.transformUser(dict :dict)
-                    self.users.append(user)
-                    completed()
-                       
-                       }
-                     
-               
-           })
+        Api.User.observeUsers(withId: uid, completion: {
+                   user in
+                   self.users.append(user)
+                   completed()
+               })
         
     }
     
     
-   func CheckTextField(){
-       commentTextField.addTarget(self, action: #selector(UpdateTextFeild), for: UIControl.Event.editingChanged)
-       
-   }
+    
+    func CheckTextField(){
+        commentTextField.addTarget(self, action: #selector(UpdateTextFeild), for: UIControl.Event.editingChanged)
+        
+    }
     @objc func UpdateTextFeild(){
         
         if let commentText = commentTextField.text, !commentText.isEmpty{
@@ -90,12 +116,12 @@ class CommentViewController: UIViewController {
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {
-        let commentsReference = Database.database().reference().child("Comments")
+        let commentsReference = Api.Comment.REF_COMMENTS
         //reference of post Id
         let newCommentId = commentsReference.childByAutoId().key
         //reference of new post
         let newCommentsReference = commentsReference.child(newCommentId!)
-         
+        
         guard let currentUser = Auth.auth().currentUser else{
             return
         }
@@ -105,8 +131,9 @@ class CommentViewController: UIViewController {
                 ProgressHUD.showError(error?.localizedDescription)
                 return
             }
-           
-            let postCommentRef = Database.database().reference().child("post-comments").child(self.postId).child(newCommentId!)
+            
+            let postCommentRef =
+                Api.Post_Comment.REF_POST_COMMENTS.child(self.postId).child(newCommentId!)
             postCommentRef.setValue(true) { (error, ref) in
                 if error != nil{
                     // show some animation
@@ -116,7 +143,9 @@ class CommentViewController: UIViewController {
             }
             
             self.empty()
-            })
+            self.view.endEditing(true)
+            
+        })
     }
     func empty(){
         self.commentTextField.text = ""
@@ -128,6 +157,7 @@ class CommentViewController: UIViewController {
 
 extension CommentViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
         return comments.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -136,9 +166,9 @@ extension CommentViewController : UITableViewDataSource{
         let user = users[indexPath.row]
         cell.comment = comment
         cell.user = user
-       // cell.updateView(post: post)
-    
+        // cell.updateView(post: post)
+        
         return cell
-       
+        
     }
 }

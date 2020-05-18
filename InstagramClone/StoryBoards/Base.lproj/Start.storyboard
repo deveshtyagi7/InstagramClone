@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -162,8 +162,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="4S6-fP-sjM">
-                                <rect key="frame" x="128" y="136" width="100" height="103"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="4S6-fP-sjM">
+                                <rect key="frame" x="127.5" y="119" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="1d6-jY-fqd"/>
                                     <constraint firstAttribute="width" constant="120" id="EjS-nc-V2O"/>

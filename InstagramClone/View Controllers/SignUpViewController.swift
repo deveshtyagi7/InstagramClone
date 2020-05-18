@@ -60,7 +60,7 @@ class SignUpViewController: UIViewController{
                 
             })
            
-        
+       
         
         }
         else{
