@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -179,11 +179,9 @@
                         <constraints>
                             <constraint firstItem="a3y-w7-46j" firstAttribute="leading" secondItem="6fa-I4-78M" secondAttribute="leading" constant="20" id="1XS-vf-Hf0"/>
                             <constraint firstItem="6fa-I4-78M" firstAttribute="trailing" secondItem="a3y-w7-46j" secondAttribute="trailing" constant="20" id="4E0-sm-mkF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4S6-fP-sjM" secondAttribute="trailing" constant="111.5" id="74S-7w-ilK"/>
                             <constraint firstItem="AHy-lT-7IT" firstAttribute="leading" secondItem="d6U-TJ-6ZY" secondAttribute="leading" id="8wJ-hb-7hO"/>
                             <constraint firstAttribute="trailing" secondItem="AHy-lT-7IT" secondAttribute="trailing" id="Sk1-kZ-fgH"/>
                             <constraint firstItem="a3y-w7-46j" firstAttribute="top" secondItem="4S6-fP-sjM" secondAttribute="bottom" constant="40" id="TcS-ue-D9h"/>
-                            <constraint firstItem="4S6-fP-sjM" firstAttribute="leading" secondItem="d6U-TJ-6ZY" secondAttribute="leadingMargin" constant="111.5" id="YrR-d5-hf9"/>
                             <constraint firstItem="4S6-fP-sjM" firstAttribute="centerX" secondItem="d6U-TJ-6ZY" secondAttribute="centerX" id="aQJ-uf-iVS"/>
                             <constraint firstItem="a3y-w7-46j" firstAttribute="centerX" secondItem="d6U-TJ-6ZY" secondAttribute="centerX" id="chm-by-7eb"/>
                             <constraint firstItem="AHy-lT-7IT" firstAttribute="topMargin" secondItem="a3y-w7-46j" secondAttribute="bottom" constant="10" id="qN1-jP-Ujg"/>
@@ -202,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0Y-4m-33h" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1831.2" y="732.68365817091455"/>
+            <point key="canvasLocation" x="-2028" y="-510"/>
         </scene>
         <!--Main-->
         <scene sceneID="Mpq-KM-KVU">
@@ -210,7 +208,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="Lmf-LT-4AL" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PaM-je-gMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1009" y="320"/>
+            <point key="canvasLocation" x="-606" y="-908"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

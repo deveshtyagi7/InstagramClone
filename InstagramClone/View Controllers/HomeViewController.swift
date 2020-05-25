@@ -12,7 +12,7 @@ import FirebaseDatabase
 import SDWebImage
 
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet weak var acitivityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,8 +24,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         loadPosts()
-  
-
+        
+        
     }
     
     func loadPosts(){
@@ -33,14 +33,14 @@ class HomeViewController: UIViewController {
         Api.Post.observePosts { (post) in
             guard let postUid = post.uid else {return}
             self.fetchUser(uid: postUid , completed: {
-                 
+                
                 
                 self.posts.append(post)
-                           self.acitivityIndicatorView.stopAnimating()
-                           self.tableView.reloadData()
-                  
+                self.acitivityIndicatorView.stopAnimating()
+                self.tableView.reloadData()
+                
             })
-    
+            
             
         }
     }
@@ -56,19 +56,19 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func logOutbuttonPressed(_ sender: Any) {
-       
+        
         do {
             try  Auth.auth().signOut()
- 
+            
         }
         catch let logoutError{
             print(logoutError)
         }
-     let storyboard = UIStoryboard(name: "Start", bundle: nil)
+        let storyboard = UIStoryboard(name: "Start", bundle: nil)
         let signinVc =  storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-    
+        
         self.present(signinVc,animated: true,completion: nil)
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,7 +83,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         
+        
         
         return posts.count
         
@@ -95,9 +95,9 @@ extension HomeViewController : UITableViewDataSource{
         cell.post = post
         cell.user = user
         cell.homeVC = self
-       // cell.updateView(post: post)
-    
+        // cell.updateView(post: post)
+        
         return cell
-       
+        
     }
 }
