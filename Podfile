@@ -11,7 +11,6 @@ target 'PicSick' do
 	pod 'FirebaseAuth'
 	pod 'FirebaseDatabase'
 	pod 'FirebaseStorage'
-	pod 'KRProgressHUD'
 	pod 'SDWebImage'
   pod 'ProgressHUD'
   
