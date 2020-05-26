@@ -8,7 +8,7 @@
 
 import UIKit
 class ProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var photoCollectionView: UICollectionView!
     var user :Users!
     var posts : [Post] = []
@@ -38,11 +38,11 @@ class ProfileViewController: UIViewController {
         Api.User.observeCurrentUser { (user) in
             self.user = user
             self.photoCollectionView.reloadData()
-            }
+        }
         
     }
-   
-
+    
+    
 }
 extension ProfileViewController : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,7 +60,7 @@ extension ProfileViewController : UICollectionViewDataSource{
         if let user = self.user{
             headerViewCell.user = user
         }
-       
+        
         return headerViewCell
     }
     

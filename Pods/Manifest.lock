@@ -74,9 +74,6 @@ PODS:
   - GoogleUtilities/UserDefaults (6.2.5):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.2)
-  - KRActivityIndicatorView (3.0.2)
-  - KRProgressHUD (3.4.1):
-    - KRActivityIndicatorView (= 3.0.2)
   - leveldb-library (1.22)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -93,12 +90,11 @@ DEPENDENCIES:
   - FirebaseAuth
   - FirebaseDatabase
   - FirebaseStorage
-  - KRProgressHUD
   - ProgressHUD
   - SDWebImage
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -114,8 +110,6 @@ SPEC REPOS:
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
     - GTMSessionFetcher
-    - KRActivityIndicatorView
-    - KRProgressHUD
     - leveldb-library
     - nanopb
     - ProgressHUD
@@ -137,13 +131,11 @@ SPEC CHECKSUMS:
   GoogleDataTransportCCTSupport: 6b545f7149111180763dc18c6f372c963de4a310
   GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
-  KRActivityIndicatorView: a2022d5d3e366207d2690f6bcc550f83aa91241b
-  KRProgressHUD: 115363b48feb530ab1f36c4146ed22e779e0f5aa
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   SDWebImage: 4ca2dc4eefae4224bea8f504251cda485a363745
 
-PODFILE CHECKSUM: da65c62ca7cac870a181f37874ca1c4aec9ded9a
+PODFILE CHECKSUM: 6a131bd488149132ca54d1d8fc3dc6f640a1ca24
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.9.2

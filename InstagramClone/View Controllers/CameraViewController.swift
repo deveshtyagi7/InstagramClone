@@ -11,6 +11,9 @@ import ProgressHUD
 
 class CameraViewController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
+    
+    
+    print("Hii")
     @IBOutlet weak var RemoveButton: UIBarButtonItem!
     @IBOutlet weak var UploadPicture: UIImageView!
     @IBOutlet weak var CaptionTextField: UITextView!
