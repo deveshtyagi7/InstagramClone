@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class User{
+class Users{
     
     var email : String?
     var profileImageUrl : String?
@@ -15,11 +15,11 @@ class User{
     
 }
 
-extension User{
+extension Users{
     
-    static func transformUser(dict : [String : Any]) -> User{
+    static func transformUser(dict : [String : Any]) -> Users{
        
-        let user = User()
+        let user = Users()
         user.email = dict["Email"] as? String
         user.profileImageUrl = dict["ProfilePictureUrl"] as? String
         user.userName = dict["Username"] as? String

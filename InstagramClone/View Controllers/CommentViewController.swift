@@ -7,10 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
 import ProgressHUD
-
-import FirebaseDatabase
 import SDWebImage
 
 class CommentViewController: UIViewController {
@@ -21,7 +18,7 @@ class CommentViewController: UIViewController {
     
     var postId : String!
     var comments = [Comment]()
-    var users = [User]()
+    var users = [Users]()
     
     
     override func viewDidLoad() {
@@ -122,7 +119,7 @@ class CommentViewController: UIViewController {
         //reference of new post
         let newCommentsReference = commentsReference.child(newCommentId!)
         
-        guard let currentUser = Auth.auth().currentUser else{
+        guard let currentUser = Api.User.CURRENT_USER else{
             return
         }
         let currentUserID = currentUser.uid

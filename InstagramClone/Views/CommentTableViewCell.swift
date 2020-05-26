@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 class CommentTableViewCell: UITableViewCell {
 
@@ -22,7 +21,7 @@ class CommentTableViewCell: UITableViewCell {
         }
     }
     
-    var user: User?{
+    var user: Users?{
         didSet{
             setupUserInfo()
         }

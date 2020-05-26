@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
-import KRProgressHUD
+import ProgressHUD
 
 class SignInViewController: UIViewController {
 
@@ -28,14 +27,14 @@ class SignInViewController: UIViewController {
         ChangeTextField(textFieldName: EmailIdTextField, placeholderString: "Email")
         ChangeTextField(textFieldName: PasswordText, placeholderString: "Password")
         CheckTextFields()
-        KRProgressHUD.set(activityIndicatorViewColors: [.black,.lightGray])
+      
      
         
     }
    // Auto login
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if Auth.auth().currentUser != nil {
+        if Api.User.CURRENT_USER != nil {
             
             self.performSegue(withIdentifier: "GoToHome", sender: nil)
         }
@@ -43,12 +42,13 @@ class SignInViewController: UIViewController {
     
     @IBAction func SignInButtonPressed(_ sender: Any) {
         view.endEditing(true)
-        KRProgressHUD.show(withMessage:"Signing In" )
+        ProgressHUD.show("Signing In" )
         AuthServices.SignIn(email: EmailIdTextField.text!, password: PasswordText.text!, completion: {
             self.performSegue(withIdentifier: "GoToHome", sender: nil)
-            KRProgressHUD.dismiss()
+            ProgressHUD.dismiss()
         }, OnError: {error in print(error!)
-            KRProgressHUD.showWarning(withMessage: "Invalid Email Id or Password")
+
+            ProgressHUD.showError("Invalid Email Id or Password")
             })
    
     }

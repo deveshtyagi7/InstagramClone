@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
 import SDWebImage
+import ProgressHUD
 
 class HomeViewController: UIViewController {
     
@@ -17,7 +16,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
-    var users = [User]()
+    var users = [Users]()
     override func viewDidLoad() {
         tableView.estimatedRowHeight = 600
         tableView.rowHeight = UITableView.automaticDimension
@@ -56,18 +55,14 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func logOutbuttonPressed(_ sender: Any) {
-        
-        do {
-            try  Auth.auth().signOut()
-            
+    AuthServices.logout(completion: {
+             let storyboard = UIStoryboard(name: "Start", bundle: nil)
+                   let signinVc =  storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+                   
+                   self.present(signinVc,animated: true,completion: nil)
+        }) { (error) in
+            ProgressHUD.showError(error)
         }
-        catch let logoutError{
-            print(logoutError)
-        }
-        let storyboard = UIStoryboard(name: "Start", bundle: nil)
-        let signinVc =  storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-        
-        self.present(signinVc,animated: true,completion: nil)
         
     }
     
