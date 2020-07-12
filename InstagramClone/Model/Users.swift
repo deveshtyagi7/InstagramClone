@@ -12,17 +12,19 @@ class Users{
     var email : String?
     var profileImageUrl : String?
     var userName : String?
-    
+    var id : String?
+    var isFollowing : Bool?
 }
 
 extension Users{
     
-    static func transformUser(dict : [String : Any]) -> Users{
+    static func transformUser(dict : [String : Any], key: String) -> Users{
        
         let user = Users()
         user.email = dict["Email"] as? String
         user.profileImageUrl = dict["ProfilePictureUrl"] as? String
         user.userName = dict["Username"] as? String
+        user.id = key 
         return user
         
         

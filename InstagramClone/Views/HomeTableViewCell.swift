@@ -24,7 +24,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     
     var homeVC : HomeViewController?
-  
+    
     
     var post: Post?{
         didSet{
@@ -47,15 +47,12 @@ class HomeTableViewCell: UITableViewCell {
             let photoURL = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoURL)
         }
-        Api.Post.observePost(withId: post!.id!, completion: {
-            post in
-            self.updateLike(post: post)
-        })
+     
+        self.updateLike(post: self.post!)
+       
         
         
-        Api.Post.observeLikeCount(withPostId: post!.id!) { (value) in
-             self.likeCountButton.setTitle("\(value) likes", for: .normal)
-        }
+      
         
     }
     func updateLike(post : Post){
@@ -107,6 +104,9 @@ class HomeTableViewCell: UITableViewCell {
         
         Api.Post.incrementLikes(postId: post!.id!, onSucess: { (post) in
             self.updateLike(post: post)
+            self.post?.likes = post.likes
+            self.post?.isLiked = post.isLiked
+            self.post?.likeCount = post.likeCount
         }) { (error) in
             ProgressHUD.showError(error)
         }

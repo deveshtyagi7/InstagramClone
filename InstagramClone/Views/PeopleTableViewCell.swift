@@ -25,17 +25,66 @@ class PeopleTableViewCell: UITableViewCell {
             let photoURL = URL(string: photoUrlString)
             profileImage.sd_setImage(with: photoURL , placeholderImage: UIImage(named: "placeholderImg"))
         }
+        
+        if user!.isFollowing!{
+            configureUnFollowButton()
+        }else{
+            configureFollowButton()
+        }
+        
+        
+        
+        
+    }
+    
+    
+    func configureFollowButton(){
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = UIColor.lightGray.cgColor
+        followButton.layer.cornerRadius = 5
+        followButton.clipsToBounds = true
+        followButton.setTitleColor(.white, for: .normal)
+        followButton.backgroundColor = UIColor(displayP3Red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
+        self.followButton.setTitle("Follow", for: .normal)
+        followButton.addTarget(self, action: #selector(self.followAction), for: .touchUpInside)
+    }
+    func configureUnFollowButton(){
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = UIColor.lightGray.cgColor
+        followButton.layer.cornerRadius = 5
+        followButton.clipsToBounds = true
+        followButton.setTitleColor(.black, for: .normal)
+        followButton.backgroundColor = UIColor.clear
+        self.followButton.setTitle("Following", for: .normal)
+        followButton.addTarget(self, action: #selector(self.unFollowAction), for: .touchUpInside)
+    }
+    
+    @objc func  followAction(){
+        if user!.isFollowing! == false{
+            Api.Follow.followAction(withUser: user!.id!)
+            configureUnFollowButton()
+            user!.isFollowing! = true
+        }
+    }
+    @objc func  unFollowAction(){
+        if user!.isFollowing! == true{
+            Api.Follow.unFollowAction(withUser: user!.id!)
+            configureFollowButton()
+            user!.isFollowing! = false
+        }
+        
+        
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }
