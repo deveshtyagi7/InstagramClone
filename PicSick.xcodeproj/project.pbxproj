@@ -42,6 +42,8 @@
 		1078AD9F244A2647000C25DF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078AD9C244A2647000C25DF /* Post.swift */; };
 		10E4CF402332A7E00058E36C /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4CF3F2332A7E00058E36C /* AuthServices.swift */; };
 		10E4CF422333A76B0058E36C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4CF412333A76B0058E36C /* Config.swift */; };
+		10E6A24024BAEB7E00CF9D29 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6A23F24BAEB7E00CF9D29 /* PeopleViewController.swift */; };
+		10E6A24224BAEBBB00CF9D29 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6A24124BAEBBB00CF9D29 /* PeopleTableViewCell.swift */; };
 		6232FE008BC35712C0CA22D3 /* Pods_PicSick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DFFEF1CF795E8AB64335E9 /* Pods_PicSick.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,8 @@
 		1078AD9C244A2647000C25DF /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		10E4CF3F2332A7E00058E36C /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		10E4CF412333A76B0058E36C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		10E6A23F24BAEB7E00CF9D29 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		10E6A24124BAEBBB00CF9D29 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
 		21DFFEF1CF795E8AB64335E9 /* Pods_PicSick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicSick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6B4EEE537696345F2B12AA /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 		5AD74D21833CB276C6A7D828 /* Pods-PicSick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicSick.debug.xcconfig"; path = "Target Support Files/Pods-PicSick/Pods-PicSick.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				10450F842327A74000B81FAE /* CameraViewController.swift */,
 				10450F862327A75500B81FAE /* ActivityViewController.swift */,
 				10450F882327A76200B81FAE /* ProfileViewController.swift */,
+				10E6A23F24BAEB7E00CF9D29 /* PeopleViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				1078AD882448AE19000C25DF /* CommentTableViewCell.swift */,
 				107639B6247D47EB00E71F31 /* HeaderProfileCollectionReusableView.swift */,
 				107639BA247D817200E71F31 /* MyPostsCollectionViewCell.swift */,
+				10E6A24124BAEBBB00CF9D29 /* PeopleTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 				1036DC36247314FF00B8CB52 /* Api.swift in Sources */,
 				10450F652327725D00B81FAE /* AppDelegate.swift in Sources */,
 				10450F812327A71200B81FAE /* HomeViewController.swift in Sources */,
+				10E6A24224BAEBBB00CF9D29 /* PeopleTableViewCell.swift in Sources */,
 				107639BD247D8D6300E71F31 /* HelperServices.swift in Sources */,
 				1078AD892448AE19000C25DF /* CommentTableViewCell.swift in Sources */,
 				107639BB247D817200E71F31 /* MyPostsCollectionViewCell.swift in Sources */,
@@ -363,6 +370,7 @@
 				1036DC38247315A600B8CB52 /* CommentApi.swift in Sources */,
 				1078AD9F244A2647000C25DF /* Post.swift in Sources */,
 				10E4CF402332A7E00058E36C /* AuthServices.swift in Sources */,
+				10E6A24024BAEB7E00CF9D29 /* PeopleViewController.swift in Sources */,
 				10E4CF422333A76B0058E36C /* Config.swift in Sources */,
 				10450F892327A76200B81FAE /* ProfileViewController.swift in Sources */,
 				107639B9247D764A00E71F31 /* MyPostsApi.swift in Sources */,

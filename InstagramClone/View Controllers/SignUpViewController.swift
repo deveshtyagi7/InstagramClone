@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import KRProgressHUD
+import ProgressHUD
 
 class SignUpViewController: UIViewController{
     @IBOutlet weak var UserNameTextField: UITextField!

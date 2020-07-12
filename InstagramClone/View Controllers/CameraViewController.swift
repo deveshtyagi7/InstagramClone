@@ -13,7 +13,7 @@ class CameraViewController: UIViewController ,UIImagePickerControllerDelegate,UI
     
     
     
-    print("Hii")
+
     @IBOutlet weak var RemoveButton: UIBarButtonItem!
     @IBOutlet weak var UploadPicture: UIImageView!
     @IBOutlet weak var CaptionTextField: UITextView!

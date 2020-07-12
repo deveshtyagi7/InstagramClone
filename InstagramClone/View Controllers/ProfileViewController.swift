@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: {
                 post in
-                print(post)
+            
                 self.posts.append(post)
                 self.photoCollectionView.reloadData()
             })
@@ -37,6 +37,7 @@ class ProfileViewController: UIViewController {
     func fetchUser(){
         Api.User.observeCurrentUser { (user) in
             self.user = user
+            self.title = user.userName
             self.photoCollectionView.reloadData()
         }
         
