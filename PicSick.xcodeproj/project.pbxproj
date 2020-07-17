@@ -40,6 +40,7 @@
 		1078AD9D244A2647000C25DF /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078AD9A244A2646000C25DF /* Users.swift */; };
 		1078AD9E244A2647000C25DF /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078AD9B244A2647000C25DF /* Comment.swift */; };
 		1078AD9F244A2647000C25DF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078AD9C244A2647000C25DF /* Post.swift */; };
+		10B445FB24C2214B00ED69FE /* FeedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B445FA24C2214B00ED69FE /* FeedApi.swift */; };
 		10E4CF402332A7E00058E36C /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4CF3F2332A7E00058E36C /* AuthServices.swift */; };
 		10E4CF422333A76B0058E36C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4CF412333A76B0058E36C /* Config.swift */; };
 		10E6A24024BAEB7E00CF9D29 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6A23F24BAEB7E00CF9D29 /* PeopleViewController.swift */; };
@@ -85,6 +86,7 @@
 		1078AD9A244A2646000C25DF /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		1078AD9B244A2647000C25DF /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		1078AD9C244A2647000C25DF /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		10B445FA24C2214B00ED69FE /* FeedApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedApi.swift; sourceTree = "<group>"; };
 		10E4CF3F2332A7E00058E36C /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		10E4CF412333A76B0058E36C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		10E6A23F24BAEB7E00CF9D29 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				107639B8247D764A00E71F31 /* MyPostsApi.swift */,
 				107639BC247D8D6300E71F31 /* HelperServices.swift */,
 				10E6A24324BAF9AB00CF9D29 /* FollowApi.swift */,
+				10B445FA24C2214B00ED69FE /* FeedApi.swift */,
 			);
 			path = "APIs and Helper";
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				1036DC36247314FF00B8CB52 /* Api.swift in Sources */,
 				10450F652327725D00B81FAE /* AppDelegate.swift in Sources */,
 				10450F812327A71200B81FAE /* HomeViewController.swift in Sources */,
+				10B445FB24C2214B00ED69FE /* FeedApi.swift in Sources */,
 				10E6A24224BAEBBB00CF9D29 /* PeopleTableViewCell.swift in Sources */,
 				107639BD247D8D6300E71F31 /* HelperServices.swift in Sources */,
 				1078AD892448AE19000C25DF /* CommentTableViewCell.swift in Sources */,

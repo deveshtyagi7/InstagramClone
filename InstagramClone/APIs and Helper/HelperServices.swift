@@ -35,6 +35,8 @@ class HelperServices{
                 ProgressHUD.showError( error?.localizedDescription)
                 return
             }
+            Api.Feed.REF_FEED.child(Api.User.CURRENT_USER!.uid).child(newPostId!).setValue(true)
+            
             let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUser).child(newPostId!)
             myPostRef.setValue(true) { (error, ref) in
                 if error != nil{

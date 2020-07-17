@@ -29,7 +29,8 @@ class HomeViewController: UIViewController {
     
     func loadPosts(){
         acitivityIndicatorView.startAnimating()
-        Api.Post.observePosts { (post) in
+        
+        Api.Feed.observeFeed(withId: Api.User.CURRENT_USER!.uid) { (post) in
             guard let postUid = post.uid else {return}
             self.fetchUser(uid: postUid , completed: {
                 
@@ -39,9 +40,32 @@ class HomeViewController: UIViewController {
                 self.tableView.reloadData()
                 
             })
-            
-            
         }
+        Api.Feed.observeFeedRemoved(withId: Api.User.CURRENT_USER!.uid) { (key) in
+            //this will check all the elements in  array if its same as key then it will remove it from array
+            self.posts = self.posts.filter{$0.id != key}
+//            for(index, post) in self.posts.enumerated(){
+//                if post.id  == key{
+//                    self.posts.remove(at: index)
+//                }
+//           }
+            self.tableView.reloadData()
+        }
+        
+        
+        //        Api.Post.observePosts { (post) in
+        //            guard let postUid = post.uid else {return}
+        //            self.fetchUser(uid: postUid , completed: {
+        //
+        //
+        //                self.posts.append(post)
+        //                self.acitivityIndicatorView.stopAnimating()
+        //                self.tableView.reloadData()
+        //
+        //            })
+        //
+        //
+        //        }
     }
     
     func fetchUser(uid :String , completed : @escaping () -> Void) {
@@ -55,11 +79,11 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func logOutbuttonPressed(_ sender: Any) {
-    AuthServices.logout(completion: {
-             let storyboard = UIStoryboard(name: "Start", bundle: nil)
-                   let signinVc =  storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-                   
-                   self.present(signinVc,animated: true,completion: nil)
+        AuthServices.logout(completion: {
+            let storyboard = UIStoryboard(name: "Start", bundle: nil)
+            let signinVc =  storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+            
+            self.present(signinVc,animated: true,completion: nil)
         }) { (error) in
             ProgressHUD.showError(error)
         }
