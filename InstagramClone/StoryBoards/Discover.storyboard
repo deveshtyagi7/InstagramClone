@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MYM-13-Mbt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MYM-13-Mbt">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,18 +11,105 @@
         <!--Discover-->
         <scene sceneID="DXc-w3-OQj">
             <objects>
-                <viewController id="hoR-7L-K5W" customClass="DiscoverViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hoR-7L-K5W" customClass="DiscoverViewController" customModule="PicSick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SRN-hh-Rvy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="yQJ-EA-oal"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Discover" id="Z7a-IJ-O7H"/>
+                    <navigationItem key="navigationItem" title="Discover" id="Z7a-IJ-O7H">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="ZBl-xt-2sb">
+                            <connections>
+                                <segue destination="7b2-nj-pzB" kind="show" id="ImC-Nj-izt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAh-nX-hsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1549" y="694"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="XdU-KQ-if6">
+            <objects>
+                <viewController id="7b2-nj-pzB" customClass="SearchViewController" customModule="PicSick" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eHS-w1-8VQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bnY-Eu-vTN">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PeopleTableViewCell" rowHeight="90" id="ZMx-GS-d15" customClass="PeopleTableViewCell" customModule="PicSick" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZMx-GS-d15" id="EKM-kW-Kl3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R2E-O7-juo">
+                                                    <rect key="frame" x="15" y="15" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="1nX-zR-P3F"/>
+                                                        <constraint firstAttribute="height" constant="60" id="GWa-Uc-H34"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzM-FC-b19">
+                                                    <rect key="frame" x="90" y="34.5" width="43" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu0-0H-tnP">
+                                                    <rect key="frame" x="299" y="30" width="100" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="kyg-QF-Wb4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <state key="normal" title="Follow">
+                                                        <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="R2E-O7-juo" firstAttribute="leading" secondItem="EKM-kW-Kl3" secondAttribute="leading" constant="15" id="3do-vJ-8lq"/>
+                                                <constraint firstItem="lzM-FC-b19" firstAttribute="centerY" secondItem="R2E-O7-juo" secondAttribute="centerY" id="CCB-p4-5hM"/>
+                                                <constraint firstAttribute="trailing" secondItem="bu0-0H-tnP" secondAttribute="trailing" constant="15" id="Mo8-uv-Hwn"/>
+                                                <constraint firstItem="lzM-FC-b19" firstAttribute="leading" secondItem="R2E-O7-juo" secondAttribute="trailing" constant="15" id="St3-Js-jcX"/>
+                                                <constraint firstItem="R2E-O7-juo" firstAttribute="top" secondItem="EKM-kW-Kl3" secondAttribute="top" constant="15" id="ilK-Gs-L8A"/>
+                                                <constraint firstItem="bu0-0H-tnP" firstAttribute="centerY" secondItem="R2E-O7-juo" secondAttribute="centerY" id="oD2-wL-lwY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="followButton" destination="bu0-0H-tnP" id="Yok-hx-nMk"/>
+                                            <outlet property="nameLabel" destination="lzM-FC-b19" id="OQG-a5-eaj"/>
+                                            <outlet property="profileImage" destination="R2E-O7-juo" id="pC3-yM-O4P"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bnY-Eu-vTN" firstAttribute="top" secondItem="utH-es-MYD" secondAttribute="top" id="QNC-aR-678"/>
+                            <constraint firstItem="bnY-Eu-vTN" firstAttribute="leading" secondItem="utH-es-MYD" secondAttribute="leading" id="Uzf-NS-Ame"/>
+                            <constraint firstItem="bnY-Eu-vTN" firstAttribute="trailing" secondItem="utH-es-MYD" secondAttribute="trailing" id="gRw-xd-r7L"/>
+                            <constraint firstAttribute="bottom" secondItem="bnY-Eu-vTN" secondAttribute="bottom" id="xNN-Tk-EGx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="utH-es-MYD"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7Ny-8K-egc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sm4-4C-IDX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-127" y="694"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a2W-Vt-aCI">

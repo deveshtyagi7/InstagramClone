@@ -41,9 +41,10 @@ class HomeViewController: UIViewController {
                 
             })
         }
-        Api.Feed.observeFeedRemoved(withId: Api.User.CURRENT_USER!.uid) { (key) in
+        Api.Feed.observeFeedRemoved(withId: Api.User.CURRENT_USER!.uid) { (post) in
             //this will check all the elements in  array if its same as key then it will remove it from array
-            self.posts = self.posts.filter{$0.id != key}
+            self.posts = self.posts.filter{$0.id != post.id}
+            self.users = self.users.filter{$0.id != post.uid }
 //            for(index, post) in self.posts.enumerated(){
 //                if post.id  == key{
 //                    self.posts.remove(at: index)
@@ -102,8 +103,6 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
         return posts.count
         
     }
