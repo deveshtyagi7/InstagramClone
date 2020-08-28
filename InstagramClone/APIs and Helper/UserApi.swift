@@ -17,24 +17,24 @@ class UserApi{
             snapshot in
             if let dict = snapshot.value as? [String : Any]{
                 let user = Users.transformUser(dict: dict ,key: snapshot.key)
-                         completion(user)
-                     }
-                
+                completion(user)
+            }
+            
         })
     }
     
     func observeCurrentUser(completion : @escaping (Users) -> Void){
         guard let currentUser = Auth.auth().currentUser else{
-                   return 
-               }
+            return
+        }
         REF_USERS.child(currentUser.uid).observeSingleEvent(of: .value, with: {
             snapshot in
             if let dict = snapshot.value as? [String : Any]{
-                     let user = Users.transformUser(dict: dict ,key: snapshot.key)
-                   
-                         completion(user)
-                     }
+                let user = Users.transformUser(dict: dict ,key: snapshot.key)
                 
+                completion(user)
+            }
+            
         })
     }
     
@@ -44,11 +44,23 @@ class UserApi{
                 let user = Users.transformUser(dict: dict ,key: snapshot.key)
                 if user.id! != Api.User.CURRENT_USER?.uid {
                     completion(user)
-
+                    
                 }
             }
         }
     }
+    
+    func queryUsers(withText text: String, completion : @escaping (Users) -> Void){
+        REF_USERS.queryOrdered(byChild: "username_lowercase").queryStarting(atValue: text).queryEnding(atValue: text+"\u{f8ff}").queryLimited(toFirst: 10).observeSingleEvent(of: .value) { (snapshot) in
+            snapshot.children.forEach { (s) in
+                let child  = s as! DataSnapshot
+                if let dict = child.value as? [String : Any]{
+                    let user = Users.transformUser(dict: dict ,key: snapshot.key)
+                    completion(user)
+                }
+            }
+        }
+    } 
     
     
     var CURRENT_USER : User?{
@@ -63,5 +75,5 @@ class UserApi{
         }
         return REF_USERS.child(currentUser.uid)
     }
-
+    
 }

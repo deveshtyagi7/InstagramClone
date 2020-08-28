@@ -50,7 +50,7 @@ class AuthServices {
                         }
                         StorageRef.downloadURL(completion: { (url, error) in
                             let profileImageUrl = url?.absoluteString
-                            newRef.setValue(["Username":username,"Email" : email,"ProfilePictureUrl" : profileImageUrl])
+                            newRef.setValue(["Username":username,"username_lowercase" : username.lowercased() ,"Email" : email,"ProfilePictureUrl" : profileImageUrl])
                         })
                         
                     })
