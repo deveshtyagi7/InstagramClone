@@ -33,15 +33,19 @@ class PeopleViewController: UIViewController {
     func isFollowing(userId : String , completed : @escaping(Bool)-> Void ){
         Api.Follow.isFollowing(userID: userId, completed: completed)
     }
-   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProfileSegue"{
+            let profileUserVC = segue.destination as! ProfileUserViewController
+            let userId = sender as! String
+            profileUserVC.userId = userId
+        }
+    }
    
 
 }
 
 extension PeopleViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
         return users.count
         
     }
@@ -49,8 +53,7 @@ extension PeopleViewController : UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleTableViewCell", for: indexPath) as! PeopleTableViewCell
         let user = users[indexPath.row]
         cell.user = user
-    
-        
+        cell.peopleVc = self
         return cell
         
     }
