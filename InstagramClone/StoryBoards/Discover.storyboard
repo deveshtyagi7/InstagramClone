@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,49 @@
                     <view key="view" contentMode="scaleToFill" id="SRN-hh-Rvy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VdJ-M4-D8G">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0iE-dG-y65">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DiscoverCollectionViewCell" id="jWI-Yv-zTU" customClass="MyPostsCollectionViewCell" customModule="PicSick" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="x9t-ov-AhZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="npg-GN-Wb8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="npg-GN-Wb8" secondAttribute="bottom" id="Ccl-l3-RqU"/>
+                                                <constraint firstAttribute="trailing" secondItem="npg-GN-Wb8" secondAttribute="trailing" id="Dyr-nW-jfs"/>
+                                                <constraint firstItem="npg-GN-Wb8" firstAttribute="leading" secondItem="x9t-ov-AhZ" secondAttribute="leading" id="d8d-fw-ALX"/>
+                                                <constraint firstItem="npg-GN-Wb8" firstAttribute="top" secondItem="x9t-ov-AhZ" secondAttribute="top" id="fts-oM-YOD"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="postImageView" destination="npg-GN-Wb8" id="kek-fj-qjd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="VdJ-M4-D8G" secondAttribute="bottom" id="0Re-ZI-isM"/>
+                            <constraint firstItem="VdJ-M4-D8G" firstAttribute="trailing" secondItem="yQJ-EA-oal" secondAttribute="trailing" id="Amx-5T-frx"/>
+                            <constraint firstItem="VdJ-M4-D8G" firstAttribute="leading" secondItem="yQJ-EA-oal" secondAttribute="leading" id="XiZ-XP-31U"/>
+                            <constraint firstItem="VdJ-M4-D8G" firstAttribute="top" secondItem="SRN-hh-Rvy" secondAttribute="top" id="cOM-7L-GQD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yQJ-EA-oal"/>
                     </view>
                     <navigationItem key="navigationItem" title="Discover" id="Z7a-IJ-O7H">
@@ -25,6 +68,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="VdJ-M4-D8G" id="75a-lv-0oN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAh-nX-hsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

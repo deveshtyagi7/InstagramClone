@@ -30,7 +30,7 @@ class HelperServices{
         let newPostId = Api.Post.REF_POSTS.childByAutoId().key
         let newPostReference = Api.Post.REF_POSTS.child(newPostId!)
         guard let currentUser = Api.User.CURRENT_USER?.uid else {return}
-        newPostReference.setValue(["uid": currentUser ,"postUrl":photoUrl,"Caption":caption ]) { (error, ref) in
+        newPostReference.setValue(["uid": currentUser ,"postUrl":photoUrl,"Caption":caption, "likeCount" : 0 ]) { (error, ref) in
             if error != nil{
                 ProgressHUD.showError( error?.localizedDescription)
                 return

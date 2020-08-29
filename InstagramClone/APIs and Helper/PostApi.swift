@@ -30,12 +30,24 @@ class PostApi{
     }
     func observeLikeCount(withPostId id : String , completion : @escaping (Int) -> Void){
         REF_POSTS.child(id).observe(.childChanged, with: {
-        snapshot in
+            snapshot in
             if let value = snapshot.value as? Int{
                 completion(value)
             }
-    })
-}
+        })
+    }
+    func observeTopPosts(completion : @escaping (Post) -> Void){
+        REF_POSTS.queryOrdered(byChild: "likeCount").observeSingleEvent(of: .value) { (snapshot) in
+            let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
+            arraySnapshot.forEach { (child) in
+                if let dict = child.value as? [String : Any]{
+                    let post = Post.transformPost(dict: dict, key: snapshot.key)
+                    completion(post)
+                }
+            }
+            
+        }
+    }
     func incrementLikes(postId: String, onSucess: @escaping (Post) -> Void, onError: @escaping (_ errorMessage: String?) -> Void) {
         let postRef = Api.Post.REF_POSTS.child(postId)
         postRef.runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
@@ -63,7 +75,7 @@ class PostApi{
                 onError(error.localizedDescription)
             }
             if let dict = snapshot?.value as? [String: Any] {
-            
+                
                 let post = Post.transformPost(dict: dict, key: snapshot!.key)
                 onSucess(post)
             }
