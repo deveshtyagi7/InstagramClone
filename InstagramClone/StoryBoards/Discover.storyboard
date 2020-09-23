@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MYM-13-Mbt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MYM-13-Mbt">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VdJ-M4-D8G">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0iE-dG-y65">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -52,6 +53,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="yQJ-EA-oal"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="VdJ-M4-D8G" secondAttribute="bottom" id="0Re-ZI-isM"/>
@@ -59,7 +61,6 @@
                             <constraint firstItem="VdJ-M4-D8G" firstAttribute="leading" secondItem="yQJ-EA-oal" secondAttribute="leading" id="XiZ-XP-31U"/>
                             <constraint firstItem="VdJ-M4-D8G" firstAttribute="top" secondItem="SRN-hh-Rvy" secondAttribute="top" id="cOM-7L-GQD"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="yQJ-EA-oal"/>
                     </view>
                     <navigationItem key="navigationItem" title="Discover" id="Z7a-IJ-O7H">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="ZBl-xt-2sb">
@@ -86,7 +87,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bnY-Eu-vTN">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PeopleTableViewCell" rowHeight="90" id="ZMx-GS-d15" customClass="PeopleTableViewCell" customModule="PicSick" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="90"/>
@@ -120,7 +121,7 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <state key="normal" title="Follow">
-                                                        <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" systemColor="systemBlueColor"/>
                                                     </state>
                                                 </button>
                                             </subviews>
@@ -146,18 +147,19 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="utH-es-MYD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bnY-Eu-vTN" firstAttribute="top" secondItem="utH-es-MYD" secondAttribute="top" id="QNC-aR-678"/>
                             <constraint firstItem="bnY-Eu-vTN" firstAttribute="leading" secondItem="utH-es-MYD" secondAttribute="leading" id="Uzf-NS-Ame"/>
                             <constraint firstItem="bnY-Eu-vTN" firstAttribute="trailing" secondItem="utH-es-MYD" secondAttribute="trailing" id="gRw-xd-r7L"/>
                             <constraint firstAttribute="bottom" secondItem="bnY-Eu-vTN" secondAttribute="bottom" id="xNN-Tk-EGx"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="utH-es-MYD"/>
                     </view>
                     <navigationItem key="navigationItem" id="7Ny-8K-egc"/>
                     <connections>
                         <outlet property="tableView" destination="bnY-Eu-vTN" id="3ch-tI-HxD"/>
+                        <segue destination="idT-vC-YkH" kind="show" identifier="searchToProfile" id="fzS-Np-yhi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sm4-4C-IDX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -185,9 +187,25 @@
             </objects>
             <point key="canvasLocation" x="-1549" y="-210"/>
         </scene>
+        <!--ProfileUserViewController-->
+        <scene sceneID="ZQJ-lh-w53">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileUserViewController" id="idT-vC-YkH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jwf-V5-jYR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hEN-LV-v9e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="393" y="124"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Search" width="23" height="22"/>
         <image name="Search_Selected" width="23" height="22"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
