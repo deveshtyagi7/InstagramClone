@@ -10,7 +10,12 @@
 import UIKit
 import ProgressHUD
 
+protocol HomeTableViewCellDelegate {
+    func goToCommentVC(postId : String)
+    func goToProfileUserVC(userID : String)
+}
 class HomeTableViewCell: UITableViewCell {
+    var delegate : HomeTableViewCellDelegate?
     
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var shareImageView: UIImageView!
@@ -22,9 +27,6 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var profileImageView: UIImageView!
-    
-    var homeVC : HomeViewController?
-    
     
     var post: Post?{
         didSet{
@@ -91,12 +93,23 @@ class HomeTableViewCell: UITableViewCell {
         likeImageView.isUserInteractionEnabled = true
         likeImageView.addGestureRecognizer(tapGestureFOrLikeImageView)
         
+        let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
+        nameLabel.isUserInteractionEnabled = true
+        nameLabel.addGestureRecognizer(tapGestureForNameLabel)
+      
+    }
+    
+    @objc func nameLabel_TouchUpInside() {
+        if let id = user?.id{
+            
+            delegate?.goToProfileUserVC(userID: id)
+            
+        }
     }
     
     @objc func handleSelectCommentImageView(){
         if let id = post?.id{
-            
-            homeVC?.performSegue(withIdentifier: "goToComment", sender: id)
+            delegate?.goToCommentVC(postId: id)
         }
         
     }

@@ -150,6 +150,13 @@ class CommentViewController: UIViewController {
         self.sendButton.setTitleColor(UIColor.lightGray, for: UIControl.State.normal)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "commentToProfile"{
+            let profileViewController = segue.destination as! ProfileUserViewController
+            let userId = sender as! String
+            profileViewController.userId = userId
+        }
+    }
 }
 
 extension CommentViewController : UITableViewDataSource{
@@ -163,9 +170,18 @@ extension CommentViewController : UITableViewDataSource{
         let user = users[indexPath.row]
         cell.comment = comment
         cell.user = user
+        cell.delegate = self
         // cell.updateView(post: post)
         
         return cell
         
     }
+}
+extension CommentViewController : CommentTableViewCellDelegate{
+   
+        func goToProfileUserVC(userID: String) {
+            performSegue(withIdentifier: "commentToProfile", sender: userID)
+        }
+        
+    
 }

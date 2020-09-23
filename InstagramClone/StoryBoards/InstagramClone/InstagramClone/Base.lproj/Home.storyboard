@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XCG-8s-EtW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XCG-8s-EtW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -130,6 +131,7 @@
                                 <rect key="frame" x="197" y="465" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="M8X-cq-vMf"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Anz-vc-beD" firstAttribute="top" secondItem="YU2-xP-b07" secondAttribute="top" id="0XB-pc-HwQ"/>
@@ -142,7 +144,6 @@
                             <constraint firstItem="M8X-cq-vMf" firstAttribute="trailing" secondItem="Anz-vc-beD" secondAttribute="trailing" id="mOX-4v-uN1"/>
                             <constraint firstItem="Anz-vc-beD" firstAttribute="bottom" secondItem="M8X-cq-vMf" secondAttribute="bottom" id="qPm-Se-roO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="M8X-cq-vMf"/>
                     </view>
                     <navigationItem key="navigationItem" title="PicSick" id="xkC-na-s4b">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="2ea-IB-5Ur">
@@ -155,6 +156,7 @@
                         <outlet property="acitivityIndicatorView" destination="Kb9-1n-qms" id="CDd-Se-TWJ"/>
                         <outlet property="tableView" destination="Anz-vc-beD" id="1Kf-Wg-q21"/>
                         <segue destination="n5c-9C-k2w" kind="show" identifier="goToComment" id="3AN-gH-LcL"/>
+                        <segue destination="kBU-GC-W6X" kind="show" identifier="homeToProfile" id="Cdq-al-WBd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kY8-2P-QNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,7 +173,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HPG-TB-NNs">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="836"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="69" id="aX3-fC-ega" customClass="CommentTableViewCell" customModule="PicSick" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="69"/>
@@ -242,7 +244,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhF-vE-bIJ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhF-vE-bIJ">
                                         <rect key="frame" x="353" y="8" width="46" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="Ndv-xl-YTV"/>
@@ -268,7 +270,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="R8R-KY-KSN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HPG-TB-NNs" firstAttribute="leading" secondItem="bnN-o1-bPi" secondAttribute="leading" id="1aP-8p-Vh6"/>
                             <constraint firstItem="nyC-aL-ecb" firstAttribute="leading" secondItem="R8R-KY-KSN" secondAttribute="leading" id="2Lh-cU-ULG"/>
@@ -278,7 +281,6 @@
                             <constraint firstItem="nyC-aL-ecb" firstAttribute="trailing" secondItem="R8R-KY-KSN" secondAttribute="trailing" id="fZE-By-PCG"/>
                             <constraint firstItem="nyC-aL-ecb" firstAttribute="top" secondItem="HPG-TB-NNs" secondAttribute="bottom" id="pbl-XG-a68"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="R8R-KY-KSN"/>
                     </view>
                     <navigationItem key="navigationItem" id="FUv-vw-cZ5"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -287,11 +289,22 @@
                         <outlet property="constraintToBottom" destination="AfV-D0-uON" id="8sR-FJ-hv3"/>
                         <outlet property="sendButton" destination="JhF-vE-bIJ" id="e4g-l3-LcN"/>
                         <outlet property="tableView" destination="HPG-TB-NNs" id="4iu-9w-RaL"/>
+                        <segue destination="kBU-GC-W6X" kind="show" identifier="commentToProfile" id="f6M-rf-IhI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ush-dh-lPl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2550.7246376811595" y="685.71428571428567"/>
+            <point key="canvasLocation" x="-2113" y="738"/>
+        </scene>
+        <!--ProfileUserViewController-->
+        <scene sceneID="w2E-1C-Npi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileUserViewController" id="kBU-GC-W6X" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="FHO-x0-xGr"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zqp-BL-gxK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2485" y="276"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mFb-VC-gZe">
@@ -315,11 +328,17 @@
             <point key="canvasLocation" x="-2610" y="-210"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="f6M-rf-IhI"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Comment" width="43" height="41"/>
         <image name="Home" width="21" height="23"/>
         <image name="Home_Selected" width="21" height="23"/>
         <image name="like" width="46" height="41"/>
         <image name="share" width="37" height="41"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

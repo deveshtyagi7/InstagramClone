@@ -7,14 +7,15 @@
 //
 
 import UIKit
-
+protocol PeopleTableViewCellDelegate {
+    func goToProfileUserVC(userId : String)
+}
 class PeopleTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     
-    var peopleVc :PeopleViewController?
-    
+    var delegate : PeopleTableViewCellDelegate?
     var user : Users?{
         didSet{
             updateView()
@@ -83,15 +84,16 @@ class PeopleTableViewCell: UITableViewCell {
         // Initialization code
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
-            nameLabel.isUserInteractionEnabled = true
-            nameLabel.addGestureRecognizer(tapGesture)
+        nameLabel.isUserInteractionEnabled = true
+        nameLabel.addGestureRecognizer(tapGesture)
     }
     
     @objc func nameLabel_TouchUpInside() {
-         if let id = user?.id{
-                   
-                   peopleVc?.performSegue(withIdentifier: "ProfileSegue", sender: id)
-               }
+        if let id = user?.id{
+            
+            delegate?.goToProfileUserVC(userId: id)
+            
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
