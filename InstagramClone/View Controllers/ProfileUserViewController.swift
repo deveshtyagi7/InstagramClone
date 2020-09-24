@@ -25,15 +25,12 @@ class ProfileUserViewController: UIViewController {
     }
     
     func fetchMyPosts(){
-        Api.MyPosts.REF_MYPOSTS.child(userId).observe(.childAdded, with: {
-            snapshot in
-            Api.Post.observePost(withId: snapshot.key, completion: {
-                post in
-                
+        Api.MyPosts.fetchMyPosts(userId: userId) { (key) in
+            Api.Post.observePost(withId: key) { (post) in
                 self.posts.append(post)
                 self.collectionView.reloadData()
-            })
-        })
+            }
+        }
     }
     
     func fetchUser(){
