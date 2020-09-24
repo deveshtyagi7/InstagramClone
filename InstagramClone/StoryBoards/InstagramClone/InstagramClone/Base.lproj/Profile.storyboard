@@ -170,6 +170,7 @@
                                         <constraint firstItem="sOO-oz-OHU" firstAttribute="leading" secondItem="d7B-52-cgc" secondAttribute="leading" constant="15" id="tRi-uf-1BA"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="followButton" destination="iTk-l9-aaQ" id="WXY-fb-NUO"/>
                                         <outlet property="followerCountLabel" destination="fC9-uX-ePr" id="bIP-Mr-8V2"/>
                                         <outlet property="followingCountLabel" destination="jA9-jQ-4Z7" id="sui-Gz-Zo2"/>
                                         <outlet property="nameLabel" destination="NJg-4r-Ouj" id="6le-Bb-yOj"/>
@@ -378,13 +379,13 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-Sw-Ffo">
                                             <rect key="frame" x="130" y="15" width="269" height="100"/>
                                             <subviews>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6a-az-QcA">
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6a-az-QcA">
                                                     <rect key="frame" x="0.0" y="58.5" width="269" height="30"/>
                                                     <color key="backgroundColor" red="0.8862745098" green="0.89411764709999997" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="xf7-iW-oLd"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <state key="normal" title="Edit Profile">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -472,6 +473,7 @@
                                         <constraint firstItem="l8b-Sw-Ffo" firstAttribute="leading" secondItem="vJ6-v5-ieK" secondAttribute="trailing" constant="15" id="rw0-4r-ttX"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="followButton" destination="j6a-az-QcA" id="yrM-jB-Uwv"/>
                                         <outlet property="followerCountLabel" destination="C3O-Ke-AlF" id="hKc-Ve-GKR"/>
                                         <outlet property="followingCountLabel" destination="Pgk-rA-dFc" id="zqj-nT-yfv"/>
                                         <outlet property="nameLabel" destination="ZpR-F3-5BR" id="jC0-s7-Lfu"/>

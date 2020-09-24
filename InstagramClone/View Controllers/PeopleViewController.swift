@@ -38,6 +38,7 @@ class PeopleViewController: UIViewController {
             let profileUserVC = segue.destination as! ProfileUserViewController
             let userId = sender as! String
             profileUserVC.userId = userId
+            profileUserVC.delegate = self
         }
     }
    
@@ -62,5 +63,18 @@ extension PeopleViewController : UITableViewDataSource{
 extension PeopleViewController : PeopleTableViewCellDelegate{
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier: "ProfileSegue", sender: userId)
+    }
+}
+
+
+extension PeopleViewController : HeaderProfileCollectionReusableViewViewDelegate {
+    
+    func updateFollowButton(forUser user: Users) {
+        for u in self.users {
+            if u.id == user.id {
+                u.isFollowing = user.isFollowing
+                self.tableView.reloadData()
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var users: [Users] = []
     var searchBar = UISearchBar()
-    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +50,7 @@ class SearchViewController: UIViewController {
             let profileViewController = segue.destination as! ProfileUserViewController
             let userId = sender as! String
             profileViewController.userId = userId
+            profileViewController.delegate = self
         }
     }
     
@@ -87,5 +88,17 @@ extension SearchViewController : UITableViewDataSource{
 extension SearchViewController : PeopleTableViewCellDelegate{
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier: "searchToProfile", sender: userId)
+    }
+}
+
+extension SearchViewController : HeaderProfileCollectionReusableViewViewDelegate {
+    
+    func updateFollowButton(forUser user: Users) {
+        for u in self.users {
+            if u.id == user.id {
+                u.isFollowing = user.isFollowing
+                self.tableView.reloadData()
+            }
+        }
     }
 }
