@@ -48,6 +48,7 @@
 		10E6A24024BAEB7E00CF9D29 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6A23F24BAEB7E00CF9D29 /* PeopleViewController.swift */; };
 		10E6A24224BAEBBB00CF9D29 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6A24124BAEBBB00CF9D29 /* PeopleTableViewCell.swift */; };
 		10E6A24424BAF9AB00CF9D29 /* FollowApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6A24324BAF9AB00CF9D29 /* FollowApi.swift */; };
+		1E65FE0E251F1E2E00AA778F /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E65FE0D251F1E2E00AA778F /* SettingTableViewController.swift */; };
 		6232FE008BC35712C0CA22D3 /* Pods_PicSick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DFFEF1CF795E8AB64335E9 /* Pods_PicSick.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		10E6A23F24BAEB7E00CF9D29 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		10E6A24124BAEBBB00CF9D29 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
 		10E6A24324BAF9AB00CF9D29 /* FollowApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowApi.swift; sourceTree = "<group>"; };
+		1E65FE0D251F1E2E00AA778F /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		21DFFEF1CF795E8AB64335E9 /* Pods_PicSick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicSick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6B4EEE537696345F2B12AA /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 		5AD74D21833CB276C6A7D828 /* Pods-PicSick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicSick.debug.xcconfig"; path = "Target Support Files/Pods-PicSick/Pods-PicSick.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				10E6A23F24BAEB7E00CF9D29 /* PeopleViewController.swift */,
 				10AA908424F9A23E00D146A4 /* SearchViewController.swift */,
 				108453B324FAC29A00B42D45 /* ProfileUserViewController.swift */,
+				1E65FE0D251F1E2E00AA778F /* SettingTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E65FE0E251F1E2E00AA778F /* SettingTableViewController.swift in Sources */,
 				10AA908524F9A23F00D146A4 /* SearchViewController.swift in Sources */,
 				1078AD872448ADF8000C25DF /* CommentViewController.swift in Sources */,
 				10450F79232780AC00B81FAE /* SignUpViewController.swift in Sources */,

@@ -60,12 +60,19 @@ extension ProfileViewController : UICollectionViewDataSource{
         let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderProfileCollectionReusableView", for:indexPath) as! HeaderProfileCollectionReusableView
         if let user = self.user{
             headerViewCell.user = user
+            headerViewCell.delegate2 = self
         }
         
         return headerViewCell
     }
     
 }
+extension ProfileViewController : HeaderProfileCollectionReusableViewViewDelegateSwitchSettingVC {
+    func goToSettingVC() {
+        performSegue(withIdentifier: "ProfileSettingSegue", sender: nil)
+    }
+}
+
 extension ProfileViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: photoCollectionView.frame.size.width / 3 - 1, height: photoCollectionView.frame.size.width / 3 - 1)
@@ -77,3 +84,4 @@ extension ProfileViewController : UICollectionViewDelegateFlowLayout{
         return 1
     }
 }
+

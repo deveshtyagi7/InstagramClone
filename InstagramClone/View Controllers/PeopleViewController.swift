@@ -78,3 +78,4 @@ extension PeopleViewController : HeaderProfileCollectionReusableViewViewDelegate
         }
     }
 }
+

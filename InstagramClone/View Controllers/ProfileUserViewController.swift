@@ -68,6 +68,7 @@ extension ProfileUserViewController : UICollectionViewDataSource{
         if let user = self.user{
             headerViewCell.user = user
             headerViewCell.delegate = self.delegate
+            headerViewCell.delegate2 = self
         }
         
         return headerViewCell
@@ -83,5 +84,11 @@ extension ProfileUserViewController : UICollectionViewDelegateFlowLayout{
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
+    }
+}
+
+extension ProfileUserViewController : HeaderProfileCollectionReusableViewViewDelegateSwitchSettingVC {
+    func goToSettingVC() {
+        performSegue(withIdentifier: "UserProfileSettingSegue", sender: nil)
     }
 }
