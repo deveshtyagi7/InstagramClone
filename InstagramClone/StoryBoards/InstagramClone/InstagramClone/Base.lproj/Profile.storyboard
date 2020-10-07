@@ -455,6 +455,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="sD9-IU-1dO"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="yAb-9H-kIY" id="ell-U1-1sZ"/>
+                        <outlet property="logoutBtnPressed" destination="OHA-2P-ylN" id="NB8-qS-t0I"/>
+                        <outlet property="profileImageView" destination="kpQ-Vo-uCG" id="GYb-Wi-CMb"/>
+                        <outlet property="saveButtonPressed" destination="hPa-fI-F5e" id="HY4-wU-YD3"/>
+                        <outlet property="usernameTextField" destination="Q83-vO-QcL" id="7k8-wa-A4M"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chb-4u-ICd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
