@@ -42,6 +42,12 @@ class ProfileViewController: UIViewController {
         }
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProfileSettingSegue" {
+            let settinVC = segue.destination as! SettingTableViewController
+            settinVC.delegate = self
+        }
+    }
     
     
 }
@@ -85,3 +91,8 @@ extension ProfileViewController : UICollectionViewDelegateFlowLayout{
     }
 }
 
+extension ProfileViewController: SettingTableViewControllerDelegate {
+    func updateUserInfo() {
+        self.fetchUser()
+    }
+}

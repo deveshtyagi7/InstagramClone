@@ -79,17 +79,6 @@ class HomeViewController: UIViewController {
         
     }
     
-    @IBAction func logOutbuttonPressed(_ sender: Any) {
-        AuthServices.logout(completion: {
-            let storyboard = UIStoryboard(name: "Start", bundle: nil)
-            let signinVc =  storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-            
-            self.present(signinVc,animated: true,completion: nil)
-        }) { (error) in
-            ProgressHUD.showError(error)
-        }
-        
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToComment"{

@@ -145,13 +145,7 @@
                             <constraint firstItem="Anz-vc-beD" firstAttribute="bottom" secondItem="M8X-cq-vMf" secondAttribute="bottom" id="qPm-Se-roO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="PicSick" id="xkC-na-s4b">
-                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="2ea-IB-5Ur">
-                            <connections>
-                                <action selector="logOutbuttonPressed:" destination="e6V-gA-wDH" id="PAj-M3-bDs"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="PicSick" id="xkC-na-s4b"/>
                     <connections>
                         <outlet property="acitivityIndicatorView" destination="Kb9-1n-qms" id="CDd-Se-TWJ"/>
                         <outlet property="tableView" destination="Anz-vc-beD" id="1Kf-Wg-q21"/>
@@ -329,7 +323,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="f6M-rf-IhI"/>
+        <segue reference="Cdq-al-WBd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Comment" width="43" height="41"/>

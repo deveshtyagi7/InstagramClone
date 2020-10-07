@@ -16,7 +16,7 @@ class SignUpViewController: UIViewController{
     @IBOutlet weak var imagePicker: UIImageView!
     @IBOutlet weak var SignUpButton: UIButton!
     
-    var SelectedImage : UIImage?
+    var selectedImage : UIImage?
     
     
     override func viewDidLoad() {
@@ -48,7 +48,7 @@ class SignUpViewController: UIViewController{
     @IBAction func SignUpPressed(_ sender: Any) {
         view.endEditing(true)
         //KRProgressHUD.show(withMessage: "Wait")
-        if let profileImage = self.SelectedImage , let imageData = profileImage.jpegData(compressionQuality: 0.1){
+        if let profileImage = self.selectedImage , let imageData = profileImage.jpegData(compressionQuality: 0.1){
             
             AuthServices.SignUP(username: UserNameTextField.text!, email: EmailIdTextField.text!, password: PasswordText.text!, imageData: imageData, completion: {
                 self.performSegue(withIdentifier: "GoToHomeBySiginUp", sender: nil)
@@ -89,7 +89,7 @@ extension SignUpViewController : UIImagePickerControllerDelegate,UINavigationCon
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let Image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            SelectedImage = Image
+            selectedImage = Image
             imagePicker.image = Image
         }
         
