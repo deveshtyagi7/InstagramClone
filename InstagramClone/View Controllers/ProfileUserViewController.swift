@@ -50,6 +50,21 @@ class ProfileUserViewController: UIViewController {
         Api.Follow.isFollowing(userID: userId, completed: completed)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserProfileToDetail"{
+            let detailViewController = segue.destination as! DetailViewController
+            let postId = sender as! String
+            detailViewController.postId = postId
+        }
+        if segue.identifier == "UserProfileToDetail"{
+            let detailViewController = segue.destination as! DetailViewController
+            let postId = sender as! String
+            detailViewController.postId = postId
+        }
+       
+    }
+    
+    
 }
 
 extension ProfileUserViewController : UICollectionViewDataSource{
@@ -61,6 +76,7 @@ extension ProfileUserViewController : UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyPostsCollectionViewCell", for: indexPath) as! MyPostsCollectionViewCell
         let post = posts[indexPath.row]
         cell.post = post
+        cell.delegate = self
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -91,4 +107,12 @@ extension ProfileUserViewController : HeaderProfileCollectionReusableViewViewDel
     func goToSettingVC() {
         performSegue(withIdentifier: "UserProfileSettingSegue", sender: nil)
     }
+}
+extension ProfileUserViewController : MyPostsCollectionViewCellDelegate {
+    
+ 
+    func goToDetailVC(postId: String) {
+        performSegue(withIdentifier: "UserProfileToDetail", sender: postId)
+    }
+    
 }

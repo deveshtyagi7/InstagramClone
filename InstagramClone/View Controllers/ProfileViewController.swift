@@ -47,6 +47,11 @@ class ProfileViewController: UIViewController {
             let settinVC = segue.destination as! SettingTableViewController
             settinVC.delegate = self
         }
+        if segue.identifier == "ProfileToDetail"{
+            let detailViewController = segue.destination as! DetailViewController
+            let postId = sender as! String
+            detailViewController.postId = postId
+        }
     }
     
     
@@ -60,6 +65,7 @@ extension ProfileViewController : UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyPostsCollectionViewCell", for: indexPath) as! MyPostsCollectionViewCell
         let post = posts[indexPath.row]
         cell.post = post
+        cell.delegate = self
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -96,3 +102,13 @@ extension ProfileViewController: SettingTableViewControllerDelegate {
         self.fetchUser()
     }
 }
+
+extension ProfileViewController : MyPostsCollectionViewCellDelegate {
+    func goToDetailVC(postId: String) {
+        performSegue(withIdentifier: "ProfileToDetail", sender: postId)
+    }
+        
+}
+    
+    
+

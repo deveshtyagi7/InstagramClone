@@ -199,6 +199,7 @@
                     <connections>
                         <outlet property="photoCollectionView" destination="S0F-bg-FgB" id="B8U-yJ-Fe7"/>
                         <segue destination="lOQ-Av-AFH" kind="show" identifier="ProfileSettingSegue" id="e8q-mG-oX4"/>
+                        <segue destination="T5h-nt-U7D" kind="show" identifier="ProfileToDetail" id="juK-fk-8VC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIk-74-KHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -687,15 +688,36 @@
                     <connections>
                         <outlet property="collectionView" destination="YMq-dZ-peH" id="aOn-Lc-Qfb"/>
                         <segue destination="lOQ-Av-AFH" kind="show" identifier="UserProfileSettingSegue" id="u2O-QA-Vbt"/>
+                        <segue destination="Opb-pY-9dd" kind="show" identifier="UserProfileToDetail" id="Uvy-ZG-X5v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ClO-3R-H7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2510" y="654"/>
         </scene>
+        <!--DetailViewController-->
+        <scene sceneID="9XF-jk-t4l">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Discover" referencedIdentifier="DetailViewController" id="Opb-pY-9dd" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eCD-5D-KpJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jgi-gM-afK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3191" y="786"/>
+        </scene>
+        <!--DetailViewController-->
+        <scene sceneID="Wip-Vp-IOU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Discover" referencedIdentifier="DetailViewController" id="T5h-nt-U7D" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="reA-ud-cqU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FCx-0A-iNV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86" y="1197"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="u2O-QA-Vbt"/>
+        <segue reference="e8q-mG-oX4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Profile" width="20" height="21"/>
