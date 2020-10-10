@@ -41,7 +41,7 @@ class PostApi{
             let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
             arraySnapshot.forEach { (child) in
                 if let dict = child.value as? [String : Any]{
-                    let post = Post.transformPost(dict: dict, key: snapshot.key)
+                    let post = Post.transformPost(dict: dict, key: child.key)
                     completion(post)
                 }
             }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class DiscoverViewController: UIViewController {
 
@@ -19,21 +20,32 @@ class DiscoverViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        loadTopPosts()
         
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+  
+    @IBAction func refreshBtnPressed(_ sender: Any) {
         loadTopPosts()
     }
     
     func loadTopPosts() {
+        ProgressHUD.show("Loading..", interaction: false)
         self.posts.removeAll()
         Api.Post.observeTopPosts { (post) in
             self.posts.append(post)
             self.collectionView.reloadData()
+            ProgressHUD.dismiss()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DiscoverDetailSegue"{
+            let detailViewController = segue.destination as! DetailViewController
+            let postId = sender as! String
+            detailViewController.postId = postId
+        }
+       
     }
     
 }
@@ -48,6 +60,7 @@ extension DiscoverViewController : UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DiscoverCollectionViewCell", for: indexPath) as! MyPostsCollectionViewCell
         let post = posts[indexPath.row]
         cell.post = post
+        cell.delegate = self
         return cell
     }
     
@@ -63,4 +76,11 @@ extension DiscoverViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
+}
+extension DiscoverViewController : MyPostsCollectionViewCellDelegate {
+    func goToDetailVC(postId: String) {
+        performSegue(withIdentifier: "DiscoverDetailSegue", sender: postId)
+    }
+    
+    
 }

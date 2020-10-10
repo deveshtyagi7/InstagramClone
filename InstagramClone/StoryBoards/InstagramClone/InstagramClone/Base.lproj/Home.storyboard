@@ -160,7 +160,7 @@
         <!--Comment View Controller-->
         <scene sceneID="EZ4-2t-mtx">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="n5c-9C-k2w" customClass="CommentViewController" customModule="PicSick" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentViewController" automaticallyAdjustsScrollViewInsets="NO" id="n5c-9C-k2w" customClass="CommentViewController" customModule="PicSick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bnN-o1-bPi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -323,7 +323,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cdq-al-WBd"/>
+        <segue reference="f6M-rf-IhI"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Comment" width="43" height="41"/>
